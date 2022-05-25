@@ -26,4 +26,8 @@
 .column {
   flex: 33.33%;
   padding: 5px;
+  text-align: center;
+}
+.column.p {
+  text-align: left;
 }
