@@ -1,0 +1,22 @@
+  .custom { 
+    color: crimson; 
+    font-weight: bold; 
+  }
+
+  .important { 
+    font-style: italic; 
+    font-size: 2em; 
+    background: yellow;
+  }
+  h1 {
+    color: goldenrod;
+    text-align: center;
+  }
+  #content .normal img:hover {          /* selector #1 */ 
+    border: 5px dotted red; 
+  }       
+  div#content > .normal img:hover {     /* selector #2 */
+    border: 2px solid silver;
+    border-radius: 10px; 
+    padding: 20px;
+  }  
