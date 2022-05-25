@@ -1,3 +1,15 @@
+  
+  /* footer class from w3 schools*/
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(136, 0, 255);
+    color: white;
+    text-align: center;
+  } 
+  
   .custom { 
     color: crimson; 
     font-weight: bold; 
@@ -20,14 +32,51 @@
   font-size: 30px;
 }
 .row {
-  display: flex;
+  display:flex;
 }
 
-.column {
-  flex: 33.33%;
+.col-0 {
+  width: 33.33%;
   padding: 5px;
   text-align: center;
 }
-.column.p {
+.col-0.p {
   text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: black; 
+  }
+  .col-0{
+    flex: 100%;
+    width: 100%;
+    align-items: center;
+  }
+  .row {
+    display:grid;
+    width: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}  
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}  
+
+@media only screen and (max-width: 800px) {
+  /* For mobile phones and tablets: */
+  [class*="col-"] {
+    width: 100%;
+  }
+} 
+
+@media only screen and (max-width: 650px) {
+  #fadeshow {
+    display: none;
+  } 
 }
