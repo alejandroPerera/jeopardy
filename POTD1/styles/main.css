@@ -1,82 +1,25 @@
-  
-  /* footer class from w3 schools*/
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(136, 0, 255);
-    color: white;
-    text-align: center;
-  } 
-  
-  .custom { 
-    color: crimson; 
-    font-weight: bold; 
-  }
-
-  .important { 
-    font-style: italic; 
-    font-size: 2em; 
-    background: yellow;
-  }
-  h1 {
-    color: goldenrod;
-    text-align: center;
-  }
-.header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-  font-size: 30px;
-}
-.row {
-  display:flex;
-}
-
-.col-0 {
-  width: 33.33%;
-  padding: 5px;
+.description{
+  left:0%;
+  right: 0%;
+  transform: translateY(40%);
+  position: relative;
   text-align: center;
 }
-.col-0.p {
-  text-align: left;
+
+.overlay{
+  position: absolute;
+  min-height: 35%;
+  min-width: 100%;
+  left:0;
+  right: 0;
+  background: rgba(213, 222, 222, 0.7)
 }
+/* body{
+  color: ivory;
+} */
 
-@media only screen and (max-width: 768px) {
-  body {
-    background-color: black; 
-  }
-  .col-0{
-    flex: 100%;
-    width: 100%;
-    align-items: center;
-  }
-  .row {
-    display:grid;
-    width: 100%;
-  }
-}
-
-* {
-  box-sizing: border-box;
-}  
-
-/* For mobile phones: */
-[class*="col-"] {
-  width: 100%;
-}  
-
-@media only screen and (max-width: 800px) {
-  /* For mobile phones and tablets: */
-  [class*="col-"] {
-    width: 100%;
-  }
-} 
-
-@media only screen and (max-width: 650px) {
-  #fadeshow {
-    display: none;
-  } 
+.page-footer{
+  padding: 24px;
+  background: black;
+  color: grey;
 }
