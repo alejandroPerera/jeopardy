@@ -13,19 +13,16 @@
         <?php 
             include "navbar.html";
         ?>
-        <form action=<?php ?> method="post">
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Login</button>
-                <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
+        <form action="login.php" onsubmit="return (validateInfo())">
+            <label>Username: </label> 
+            <input type="text" id="username" class="form-control" autofocus="" required="" onblur="checkUsername()">
+            <div id="user-msg" class="feedback"></div> 
+            <br>
+            <label>Password: </label> 
+            <input type="password" id="pwd" class="form-control" required="">
+            <div id="pwd-msg" class="feedback"></div> 
+            <br>
+            <input type="submit" class="btn btn-dark" value="Sign in">   <!-- use input type="submit" with the required attribute -->
         </form>
     </body>
 </html>
