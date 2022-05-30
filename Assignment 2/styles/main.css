@@ -12,3 +12,11 @@ body {
     padding-bottom: .5%;
 }
 
+.custom-col {
+    text-align: center;
+    padding: 5%;
+}
+
+.col-border { 
+    border-right: 10px black;
+}
