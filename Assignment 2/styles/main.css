@@ -1,13 +1,14 @@
 body { 
-    background-color: rgb(172, 108, 163);
+    background-color: lavender;
     padding:0; 
     margin:0;
 }
 
 .custom-nav { 
-    background-color: black;
+    background-color: rgb(12, 14, 25);
     font-size: xx-large;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
+    padding-bottom: .5%;
 }
 
