@@ -17,6 +17,9 @@ body {
     padding: 5%;
 }
 
-.col-border { 
-    border-right: 10px black;
+.vertical { 
+    border-left: 6px solid  rgb(12, 14, 25);
+    height: 100%;
+    position: absolute;
+    left: 50%;
 }
