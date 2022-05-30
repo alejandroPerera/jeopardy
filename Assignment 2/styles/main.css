@@ -1,0 +1,13 @@
+body { 
+    background-color: rgb(172, 108, 163);
+    padding:0; 
+    margin:0;
+}
+
+.custom-nav { 
+    background-color: black;
+    font-size: xx-large;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+
