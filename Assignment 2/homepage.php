@@ -12,29 +12,7 @@
 </head>
 
 <body>
-
-    <nav class="custom-nav navbar-expand-lg">
-        <div class="container-fluid">
-            <ul class="nav nav-pills nav-fill">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
-                </li>
-                <li class="nav-item">
-                    <form role="search">
-                        <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
-                            aria-label="Search" autofocus>
-                        <button class="btn btn-primary" type="submit">Search</button>
-                    </form>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Out</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php include "./navbar.html" ?>
 
     <div class="container">
         <div class="row">
