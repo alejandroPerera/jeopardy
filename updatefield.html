@@ -13,23 +13,21 @@
   <!-- <script src="path/to-your/external.js"></script> -->
 
   <script type="text/javascript">
+      function setFocus() {
+        document.userInfo.username.focus();
+      }
       
-           
+      function ChnageFieldByName(name) {
+        document.userInfo.username.value = name;
+      }
      
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+      function ChangeFieldById(name) {
+        document.getElementById("username").value = name;
+      }
+
+      function ChangeFieldByPosition(name) {
+        document.forms[0].elements[0].value = name;
+      }
   </script>   
 </head>
 
@@ -38,7 +36,7 @@
   <h2 class="mt-3" style="text-align:center">Form and JS</h2>    
   <br />
   
-  <form  name="userInfo" action="updatefield.html">
+  <form  name="userInfo" action="updatefield.html" method="post">
     <div class="row mb-3">
       <label for="username" class="col-sm-2 col-form-label">User name:</label>
       <div class="col-sm-10">
@@ -62,20 +60,35 @@
   <table class="table" style="text-align:left">
     <tr>
       <td>Event handling: <code><font color="red">mouseover</font></code> &nbsp; on links</td>
-      <td><a>Humpty</a></td>  
-      <td><a>Dumpty</a></td>
-      <td><a>Wacky</a></td> 
+      <td><a id="humpty">Humpty</a></td>  
+      <td><a id="dumpty">Dumpty</a></td>
+      <td><a id="wacky">Wacky</a></td> 
     </tr>
     <tr>
       <td>Event handling: <code><font color="red">click</font></code> &nbsp; on buttons</td>
-      <td><button class="btn btn-primary">Humpty</button></td>  
-      <td><button class="btn btn-primary">Dumpty</button></td>
-      <td><button class="btn btn-primary">Wacky</button></td> 
+      <td><button id="btn_humpty" class="btn btn-primary">Humpty</button></td>  
+      <td><button id="btn_dumpty" class="btn btn-primary">Dumpty</button></td>
+      <td><button id="btn_wacky" class="btn btn-primary">Wacky</button></td> 
     </tr>
   </table>    
+  <script>
+    var humpty = document.getElementById("humpty");
+    humpty.addEventListener("mouseover", function() { ChnageFieldByName('name-new'); }, false);
+    humpty.addEventListener("mouseout", function() { ChnageFieldByName('name'); }, false);
 
+    var btn_humpty = document.getElementById("btn_humpty");
+    btn_humpty.addEventListener("click", function() { ChnageFieldByName('humpty'); }, false);
+
+    var btn_dumpty = document.getElementById("btn_dumpty");
+    btn_dumpty.addEventListener("click", function() { ChangeFieldById('dumpty'); }, false);
+
+    var btn_wacky = document.getElementById("btn_wacky");
+    btn_wacky.addEventListener("click", function() { ChangeFieldByPosition('wacky'); }, false);
+  </script>
 </div> 
 </body>
+
+
 </html>
 
 
