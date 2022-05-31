@@ -26,5 +26,10 @@
             <input type="submit" class="btn btn-dark" value="Sign in">   <!-- use input type="submit" with the required attribute -->
         </form>
         
+        <script>
+            var hp = document.getElementById('login-tab');
+            hp.classList.add('active')
+        </script>
+
     </body>
 </html>

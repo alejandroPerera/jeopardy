@@ -15,5 +15,9 @@
         include "navbar.html";
     ?>
     
+    <script>
+        var hp = document.getElementById('create-tab');
+        hp.classList.add('active')
+    </script>
 </body>
 </html>
