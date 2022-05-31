@@ -50,9 +50,20 @@
 
             </div>
 
-            <div class="col vertical"></div>
+            <div class="col vertical">
+        
+            </div>
 
             <div class="col custom-col">
+
+                <div class="p-3">
+                    <form class="d-flex role="search">
+                        <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
+                            aria-label="Search" autofocus>
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                </div>
+                
                 <h1>Favorites</h1>
 
                 <div class="list-group">
@@ -65,6 +76,7 @@
                         <small>Anonymous</small>
                     </a>
                 </div>
+
 
             </div>
         </div>
