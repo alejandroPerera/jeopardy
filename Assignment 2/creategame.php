@@ -14,6 +14,53 @@
     <?php 
         include "navbar.html";
     ?>
-    
+    <div class="container">
+        <div class="container">
+            <div class="row align-items-start">
+
+                <div class="col">
+                    <div class="question_block">
+                        One of three columns
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="question_block">
+                        One of three columns
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="question_block">
+                        One of three columns
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col">
+                One of three columns
+                </div>
+                <div class="col">
+                One of three columns
+                </div>
+                <div class="col">
+                One of three columns
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col">
+                One of three columns
+                </div>
+                <div class="col">
+                One of three columns
+                </div>
+                <div class="col">
+                One of three columns
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
