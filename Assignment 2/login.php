@@ -8,14 +8,15 @@
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <link href="styles/main.css" rel="stylesheet" type="text/css">
+        <script src="./javascript/login_check.js"></script>
     </head>
     <body>
         <?php 
             include "navbar.html";
         ?>
-        <form action="login.php" onsubmit="return (validateInfo())">
+        <form action="login.php" onsubmit="return (check())">
             <label>Username: </label> 
-            <input type="text" id="username" class="form-control" autofocus="" required="" onblur="checkUsername()">
+            <input type="text" id="username" class="form-control" autofocus="" required="" onblur="checkusername()">
             <div id="user-msg" class="feedback"></div> 
             <br>
             <label>Password: </label> 
@@ -24,5 +25,6 @@
             <br>
             <input type="submit" class="btn btn-dark" value="Sign in">   <!-- use input type="submit" with the required attribute -->
         </form>
+        
     </body>
 </html>
