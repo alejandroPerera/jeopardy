@@ -14,13 +14,13 @@
         <?php 
             include "navbar.html";
         ?>
-        <form action="login.php" onsubmit="return (check())">
+        <form method="post" onsubmit="return check()">
             <label>Username: </label> 
             <input type="text" id="username" class="form-control" autofocus="" required="" onblur="checkusername()">
             <div id="user-msg" class="feedback"></div> 
             <br>
             <label>Password: </label> 
-            <input type="password" id="pwd" class="form-control" required="">
+            <input type="password" id="pwd" class="form-control" required="" autocomplete="on">
             <div id="pwd-msg" class="feedback"></div> 
             <br>
             <input type="submit" class="btn btn-dark" value="Sign in">   <!-- use input type="submit" with the required attribute -->
