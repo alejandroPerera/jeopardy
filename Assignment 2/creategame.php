@@ -15,34 +15,34 @@
     <?php 
         include "navbar.html";
     ?>
-    <form action="creategame.php" method="post" onsubmit="return (check_point())">
+    <form method="post" onsubmit="">
         <div class="container">
             <div class="container">
                 <div class="row">
                     <div class="col-md"></div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_1" name="point_1" placeholder="100" />
+                            <input class="point" type="text" id="point_1" name="point_1" placeholder="100" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" name="point 2" placeholder="200" />
+                            <input class="point" type="text" id="point_2" name="point 2" placeholder="200" />
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" name="point 3" placeholder="300" />
+                            <input class="point" type="text" id="point_3" name="point 3" placeholder="300" />
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" name="point 4" placeholder="400" />
+                            <input class="point" type="text" id="point_4" name="point 4" placeholder="400" />
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" name="point 5" placeholder="500" />
+                            <input class="point" type="text" id="point_5" name="point 5" placeholder="500" />
                         </div>
                     </div>
                 </div>

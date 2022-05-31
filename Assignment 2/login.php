@@ -14,7 +14,7 @@
         <?php 
             include "navbar.html";
         ?>
-        <form onsubmit="return (check())">
+        <form method="post" onsubmit="return check()">
             <label>Username: </label> 
             <input type="text" id="username" class="form-control" autofocus="" required="" onblur="checkusername()">
             <div id="user-msg" class="feedback"></div> 
