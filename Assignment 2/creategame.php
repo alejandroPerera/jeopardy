@@ -27,22 +27,22 @@
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_2" name="point 2" placeholder="200" />
+                            <input class="point" type="text" id="point_2" name="point 2" placeholder="200" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_3" name="point 3" placeholder="300" />
+                            <input class="point" type="text" id="point_3" name="point 3" placeholder="300" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_4" name="point 4" placeholder="400" />
+                            <input class="point" type="text" id="point_4" name="point 4" placeholder="400" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_5" name="point 5" placeholder="500" />
+                            <input class="point" type="text" id="point_5" name="point 5" placeholder="500" onblur="check_point()"/>
                         </div>
                     </div>
                 </div>
