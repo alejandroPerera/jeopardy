@@ -20,7 +20,7 @@
             <div id="user-msg" class="feedback"></div> 
             <br>
             <label>Password: </label> 
-            <input type="password" id="pwd" class="form-control" required="">
+            <input type="password" id="pwd" class="form-control" required="" autocomplete="on">
             <div id="pwd-msg" class="feedback"></div> 
             <br>
             <input type="submit" class="btn btn-dark" value="Sign in">   <!-- use input type="submit" with the required attribute -->
