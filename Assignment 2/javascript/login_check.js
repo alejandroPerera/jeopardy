@@ -20,5 +20,6 @@ function checkusername() {
         user_msg.textContent = "Wrong username";
         return false;
     }
+    user_msg.textContent = "";
     return true;
 }
