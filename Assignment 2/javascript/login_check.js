@@ -13,7 +13,6 @@ function check() {
 }
 
 function checkusername() {
-    alert("12")
     var username = document.getElementById("username").value;
     var user_msg = document.getElementById("user-msg");
     if (username != "tony" && username != "alex"){
