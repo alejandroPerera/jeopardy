@@ -30,7 +30,6 @@ body {
     text-align: center;
     vertical-align: middle;
     line-height: 13vh; 
-    
 }
 
 .point_block {
@@ -47,6 +46,14 @@ body {
     text-align: center;
     vertical-align: middle;
     line-height: 6vh; 
+}
+
+.create_game {
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 13vh;
 }
 
 form {
