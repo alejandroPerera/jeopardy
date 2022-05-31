@@ -1,4 +1,4 @@
-(check) => {
+function check() {
     var username = document.getElementById("username");
     var passwrod = document.getElementById("pwd");
     var pwd_msg = document.getElementById("pwd-msg");
@@ -20,5 +20,6 @@ function checkusername() {
         user_msg.textContent = "Wrong username";
         return false;
     }
+    user_msg.textContent = "";
     return true;
 }

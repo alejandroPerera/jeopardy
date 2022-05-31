@@ -29,6 +29,7 @@
         <script>
             var hp = document.getElementById('login-tab');
             hp.classList.add('active')
+            document.getElementById("username").addEventListener("change", checkusername);
         </script>
 
     </body>
