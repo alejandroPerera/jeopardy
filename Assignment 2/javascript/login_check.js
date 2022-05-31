@@ -1,4 +1,4 @@
-function check() {
+(check) => {
     var username = document.getElementById("username");
     var passwrod = document.getElementById("pwd");
     var pwd_msg = document.getElementById("pwd-msg");
