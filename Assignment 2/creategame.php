@@ -15,7 +15,7 @@
     <?php 
         include "navbar.html";
     ?>
-    <form action="creategame.php" onsubmit="return (check_point())">
+    <form action="creategame.php" method="post" onsubmit="return (check_point())">
         <div class="container">
             <div class="container">
                 <div class="row">
