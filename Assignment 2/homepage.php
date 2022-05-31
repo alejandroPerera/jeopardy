@@ -87,8 +87,10 @@
         crossorigin="anonymous">
     </script>
     <script>
-        var hp = document.getElementById('homepage-tab');
-        hp.classList.add('active')
+        (function () {
+                var highlight = document.getElementById('homepage-tab'); //anonymous function
+                highlight.classList.add('active')
+            })();
     </script>
 </body>
 </html>

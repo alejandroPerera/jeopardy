@@ -166,8 +166,10 @@
     </form>
     
     <script>
-        var hp = document.getElementById('create-tab');
-        hp.classList.add('active')
+        (function () {
+                var highlight = document.getElementById('create-tab');  //anonymous function
+                highlight.classList.add('active')
+            })();
     </script>
 </body>
 </html>

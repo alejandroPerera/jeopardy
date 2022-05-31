@@ -27,8 +27,10 @@
         </form>
         
         <script>
-            var hp = document.getElementById('login-tab');
-            hp.classList.add('active')
+            (function () {
+                var highlight = document.getElementById('login-tab');   //anonymous function
+                highlight.classList.add('active')
+            })();
         </script>
 
     </body>
