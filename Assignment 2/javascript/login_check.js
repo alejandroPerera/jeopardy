@@ -2,7 +2,6 @@ function check() {
     var username = document.getElementById("username");
     var passwrod = document.getElementById("pwd");
     var pwd_msg = document.getElementById("pwd-msg");
-    alert("12");
     //console.log(passwrod.value)
     if (username.value === "tony" && passwrod.value != "tony"){
         pwd_msg.textContent = "Wrong password";
