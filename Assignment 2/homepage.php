@@ -13,15 +13,22 @@
 
 <body>
     <?php include "./navbar.html" ?>
-    <div class="container bg-image"  style="color: blue ;height: 100vh">
+    <div class="container bg-image" style="background-image: url('styles/bg.jpg');
+            height: 35vh; background-size: cover; background-position: center; position: relative; max-width:100%">
         <div class="row">
-            <div class="p-3">
-                <form class="d-flex" role="search">
-                    <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
-                        aria-label="Search" autofocus>
-                    <button class="btn btn-primary" type="submit">Search</button>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form class="d-flex flex-column" role="search" style="text-align:center; padding: 11vh 0;">
+                    <h1 class="p-3">
+                        <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
+                            aria-label="Search" autofocus >
+                    </h1>
+                    <p class="p-3" style="text-align:center;">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Search</a>
+                    </p>
                 </form>
             </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
     <div class="container">
