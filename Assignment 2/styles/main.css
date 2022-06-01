@@ -9,7 +9,8 @@ body {
     font-size: xx-large;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
-    padding-bottom: .5%;
+    height: 10vh;
+    line-height: 9vh;
 }
 
 .custom-col {
@@ -57,10 +58,10 @@ body {
 }
 
 .big_label {
-    text-align: center !important;
-    vertical-align: middle !important;
-    height: 8vh !important;
-    line-height: 8vh !important;
+    text-align: center;
+    vertical-align: middle;
+    height: 8vh;
+    line-height: 8vh;
 }
 
 form {

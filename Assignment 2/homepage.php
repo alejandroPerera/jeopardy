@@ -13,7 +13,17 @@
 
 <body>
     <?php include "./navbar.html" ?>
-
+    <div class="container bg-image"  style="color: blue ;height: 100vh">
+        <div class="row">
+            <div class="p-3">
+                <form class="d-flex" role="search">
+                    <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
+                        aria-label="Search" autofocus>
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col custom-col">
@@ -51,18 +61,12 @@
             </div>
 
             <div class="col vertical">
-        
+
             </div>
 
             <div class="col custom-col">
 
-                <div class="p-3">
-                    <form class="d-flex role="search">
-                        <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
-                            aria-label="Search" autofocus>
-                        <button class="btn btn-primary" type="submit">Search</button>
-                    </form>
-                </div>
+                
                 
                 <h1>Favorites</h1>
 
@@ -87,8 +91,10 @@
         crossorigin="anonymous">
     </script>
     <script>
-        var hp = document.getElementById('homepage-tab');
-        hp.classList.add('active')
+        (function () {
+                var highlight = document.getElementById('homepage-tab'); //anonymous function
+                highlight.classList.add('active')
+            })();
     </script>
 </body>
 </html>
