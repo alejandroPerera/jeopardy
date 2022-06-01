@@ -20,7 +20,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="create_game">
-                    <input type="text" id="subject">
+                    <input type="text" class="form-control" id="subject">
                 </div>
             </div>
             <div class="col-md-4"></div>
@@ -29,7 +29,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="create_game">
-                    <input type="text" id="subject">
+                    <input type="text" class="form-control" id="subject">
                 </div>
             </div>
             <div class="col-md-4"></div>            
@@ -38,7 +38,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="create_game">
-                    <input type="text" id="subject">
+                    <input type="text" class="form-control" id="subject">
                 </div>
             </div>
             <div class="col-md-4"></div>
