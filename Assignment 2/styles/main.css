@@ -56,6 +56,13 @@ body {
     line-height: 6vh;
 }
 
+.big_label {
+    text-align: center !important;
+    vertical-align: middle !important;
+    height: 8vh !important;
+    line-height: 8vh !important;
+}
+
 form {
     padding-top: 2vh;
 }
