@@ -20,25 +20,28 @@
     </div>
 
     <form class = 'px-4'>
-        <div class="form-group">
+        <div class="form-group py-2">
             <label for="exampleFormControlInput1">Title</label>
             <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="My Jeopardy Game">
         </div>
 
-        <div class="form-group">
+        <div class="form-group py-2">
             <label for="exampleFormControlInput1">Author</label>
             <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="John Smith">
         </div>
 
-        <div class="form-group">
+        <div class="form-group py-2">
             <label for="exampleFormControlInput1">Category</label>
             <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="English">
         </div>
 
-        <div class="form-group">
+        <div class="form-group py-2">
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
+        <div class="d-grid gap-2 py-2">
+            <a class="btn btn-primary btn-lg" href="creategame2.php" role="button">Continue</a>
+        </div> 
     </form>
 
     <script>
