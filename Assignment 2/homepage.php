@@ -57,7 +57,7 @@
             <div class="col custom-col">
 
                 <div class="p-3">
-                    <form class="d-flex role="search">
+                    <form class="d-flex" role="search">
                         <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
                             aria-label="Search" autofocus>
                         <button class="btn btn-primary" type="submit">Search</button>
