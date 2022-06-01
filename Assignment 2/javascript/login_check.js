@@ -13,7 +13,7 @@ function check() {
     return true;
 }
 
-var checkusername = () => {
+var checkusername = () => {                                      //arrow function
     var username = document.getElementById("username").value;
     var user_msg = document.getElementById("user-msg");
     if (username != "tony" && username != "alex"){
