@@ -15,8 +15,9 @@
     <?php 
         include "navbar.html";
     ?>
-    <div class='custom-col'>
-        <h1>Create Your Own Game!</h1> 
+    <div class="container bg-image custom-col" style="background-image: url('styles/bg.jpg');
+            height: 35vh; background-size: cover; background-position: center; position: relative; max-width:100%">
+        <h1 style='color:white'>Create Your Own Game!</h1> 
     </div>
 
     <form class = 'px-4'>
