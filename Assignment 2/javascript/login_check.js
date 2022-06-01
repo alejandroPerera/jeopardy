@@ -16,7 +16,7 @@ function check() {
 var checkusername = () => {                                      //arrow function
     var username = document.getElementById("username").value;
     var user_msg = document.getElementById("user-msg");
-    if (username != "tony" && username != "alex"){
+    if (username != "tony" && username != "alex" && username != ""){
         user_msg.textContent = "Wrong username";
         return false;
     }
