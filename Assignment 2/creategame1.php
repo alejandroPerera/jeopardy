@@ -15,41 +15,37 @@
     <?php 
         include "navbar.html";
     ?>
-    <form>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 big_label">
-                <label class="big_label">Create your own game</label>
-            </div>
-            <div class="col-md-3"></div>
+    <div class='custom-col'>
+        <h1>Create Your Own Game!</h1> 
+    </div>
+
+    <form class = 'px-4'>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="My Jeopardy Game">
         </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="create_game">
-                    <input type="text" class="form-control" id="subject">
-                </div>
-            </div>
-            <div class="col-md-4"></div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Author</label>
+            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="John Smith">
         </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="create_game">
-                    <input type="text" class="form-control" id="subject">
-                </div>
-            </div>
-            <div class="col-md-4"></div>            
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Category</label>
+            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="English">
         </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="create_game">
-                    <input type="text" class="form-control" id="subject">
-                </div>
-            </div>
-            <div class="col-md-4"></div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
     </form>
+
+    <script>
+        (function () {
+                var highlight = document.getElementById('create-tab');   //anonymous function
+                highlight.classList.add('active')
+            })();
+    </script>
 </body>
 </html>

@@ -27,9 +27,10 @@
         </form>
         
         <script>
-            var hp = document.getElementById('login-tab');
-            hp.classList.add('active')
-            document.getElementById("username").addEventListener("change", checkusername);
+            (function () {
+                var highlight = document.getElementById('login-tab');   //anonymous function
+                highlight.classList.add('active')
+            })();
         </script>
 
     </body>

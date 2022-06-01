@@ -13,7 +13,7 @@ function check() {
     return true;
 }
 
-function checkusername() {
+var checkusername = () => {                                      //arrow function
     var username = document.getElementById("username").value;
     var user_msg = document.getElementById("user-msg");
     if (username != "tony" && username != "alex"){
@@ -22,4 +22,15 @@ function checkusername() {
     }
     user_msg.textContent = "";
     return true;
-}
+};
+
+// function checkusername() {
+//     var username = document.getElementById("username").value;
+//     var user_msg = document.getElementById("user-msg");
+//     if (username != "tony" && username != "alex"){
+//         user_msg.textContent = "Wrong username";
+//         return false;
+//     }
+//     user_msg.textContent = "";
+//     return true;
+// }

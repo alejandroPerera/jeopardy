@@ -9,13 +9,17 @@ body {
     font-size: xx-large;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
-    height: 10vh;
-    line-height: 9vh;
+    padding-bottom: .5%;
 }
 
 .custom-col {
     text-align: center;
     padding: 5%;
+}
+
+.custom-create-header {
+    text-align: center;
+    padding: %;
 }
 
 .vertical { 
@@ -50,18 +54,15 @@ body {
 }
 
 .create_game {
-    width: 100%;
+    width: 100% ;
     height: 8vh;
     text-align: center;
     vertical-align: middle;
     line-height: 6vh;
 }
 
-.big_label {
+.big-label {
     text-align: center;
-    vertical-align: middle;
-    height: 8vh;
-    line-height: 8vh;
 }
 
 form {
