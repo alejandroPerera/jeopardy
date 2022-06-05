@@ -13,7 +13,7 @@
 </head>
 <body>
     <?php 
-        include "navbar.html";
+        include "navbar.php";
     ?>
     <div class="container bg-image custom-col" style="background-image: url('styles/bg.jpg');
             height: 35vh; background-size: cover; background-position: center; position: relative; max-width:100%">

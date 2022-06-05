@@ -13,7 +13,7 @@
 </head>
 <body>
     <?php 
-        include "navbar.html";
+        include "navbar.php";
     ?>
     <form method="post" onsubmit="">
         <div class="container">

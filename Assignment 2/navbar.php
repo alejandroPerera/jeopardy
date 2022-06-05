@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="styles/UVA.png"><img src="styles/uva.png" height="30" style="border: 5px"/></a>
+      
+      <span class="navbar-text">
+        Hello <?php if(isset($_COOKIE['user'])) echo $_COOKIE['user'] ?>
+      </span>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

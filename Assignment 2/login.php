@@ -12,18 +12,27 @@
     </head>
     <body>
         <?php 
-            include "navbar.html";
+            include "navbar.php";
+        
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                if(strlen($_POST['username']) > 0){ //isset, !empty 
+                    setcookie('user', $_POST['username'], time()+3600); //60min 
+                    setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
+                    header('Location: index.php');
+                }
+            }
         ?>
+
         <div class="row">
             <div class="col-md-3"></div>
         <div class="col-md-6">
             <form method="post" onsubmit="return check()">
                 <label>Username: </label> 
-                <input type="text" id="username" class="form-control form-control-lg" autofocus="" required="" onblur="checkusername()">
+                <input type="text" id="username" name="username" class="form-control form-control-lg" autofocus="" required="" onblur="checkusername()">
                 <div id="user-msg" class="feedback"></div> 
                 <br>
                 <label>Password: </label> 
-                <input type="password" id="pwd" class="form-control form-control-lg" required="" autocomplete="on">
+                <input type="password" id="pwd" name="pwd" class="form-control form-control-lg" required="" autocomplete="on">
                 <div id="pwd-msg" class="feedback"></div> 
                 <br>
                 <div class='d-grid gap-2'>
