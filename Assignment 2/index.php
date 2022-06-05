@@ -15,7 +15,7 @@
     <?php include "./navbar.php" ?>
 
     <?php
-        if(isset($_COOKIE['user']))
+        if(isset($_COOKIE['user']))   // COOKIES
             {
     ?>
 

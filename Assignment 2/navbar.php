@@ -17,9 +17,22 @@
             <li class="nav-item">
                 <a class="nav-link" id='create-tab' href="creategame1.php">Create</a>
             </li>
+            
+            <?php
+              if(isset($_COOKIE['user'])) { // COOKIES
+            ?>
+              <li class="nav-item">
+                <a class="nav-link" id='login-tab' href="logout.php">Sign Out</a>
+              </li>
+            <?php 
+              }
+              else {
+            ?>
             <li class="nav-item">
                 <a class="nav-link" id='login-tab' href="login.php">Sign In</a>
             </li>
+            <?php } ?>
+
         </ul>
       </div>
     </div>
