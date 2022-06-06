@@ -13,8 +13,14 @@
 </head>
 <body>
     <?php 
-        include "navbar.html";
+        include "navbar.php";
     ?>
+
+    <?php
+        if(isset($_COOKIE['user']))   // COOKIES
+            {
+    ?>
+
     <div class="container bg-image custom-col" style="background-image: url('styles/bg.jpg');
             height: 35vh; background-size: cover; background-position: center; position: relative; max-width:100%">
         <h1 style='color:white'>Create Your Own Game!</h1> 
@@ -44,6 +50,17 @@
             <a class="btn btn-primary btn-lg" href="creategame2.php" role="button">Continue</a>
         </div> 
     </form>
+
+    <?php
+        }
+        else{
+            
+    ?> 
+        <h1>Need to login</h1>
+    <?php   
+
+        }
+    ?>
 
     <script>
         (function () {
