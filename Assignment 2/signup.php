@@ -19,19 +19,19 @@
         <form class="row g-3 px-4">
             <div class="col-6">
                 <label class="form-label">First name</label>
-                <input type="email" class="form-control form-control-lg" id="inputEmail4" placeholder="John" required="">
+                <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="John" required="">
             </div>
             <div class="col-6">
                 <label for="inputPassword4" class="form-label">Last name</label>
-                <input type="password" class="form-control form-control-lg" id="inputPassword4" placeholder="Smith" required="">
+                <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="Smith" required="">
             </div>
             <div class="col-6">
                 <label class="form-label">Email</label>
-                <input type="text" class="form-control form-control-lg" placeholder="email@address.com" required="">
+                <input type="email" class="form-control form-control-lg" placeholder="email@address.com" required="">
             </div>
             <div class="col-6">
                 <label class="form-label">Password</label>
-                <input type="text" class="form-control form-control-lg" placeholder="password" required="">
+                <input type="password" class="form-control form-control-lg" placeholder="password" required="">
             </div>
             <div class="d-grid gap-2 py-2">
                 <a class="btn btn-primary btn-lg" href="login.php" role="button">Sign Up</a>

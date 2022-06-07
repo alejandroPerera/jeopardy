@@ -24,7 +24,7 @@
                 unset($_COOKIE[$key]); //on server side
                 setcookie($key, '', time()-3600); //set to null, and expire in the past: automatically removed by browser
             }
-            header('refresh:5; url=login.php'); //redirect after 5 seconds
+            header('refresh:2; url=login.php'); //redirect after 5 seconds
             }
         ?>
 
