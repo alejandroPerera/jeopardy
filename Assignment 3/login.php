@@ -1,5 +1,9 @@
 <!doctype html>
 <html lang="en">
+<?php
+require_once "db_connection.php";
+require_once "session_create.php";
+?>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,14 +15,28 @@
         <script src="./javascript/login_check.js"></script>
     </head>
     <body>
-        <?php 
+        <?php
             include "navbar.php";
         
             if($_SERVER['REQUEST_METHOD'] == "POST"){
-                if(strlen($_POST['username']) > 0){ //isset, !empty 
-                    setcookie('user', $_POST['username'], time()+3600); //60min 
-                    setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
-                    header('Location: index.php');
+                if(strlen($_POST['username']) > 0 && strlen($_POST['pwd']) > 0){ //isset, !empty 
+                    $username_input = $_POST['username'];
+                    $userpwd_input = $_POST['pwd'];
+                    $user = $db->query(" SELECT * FROM user_info WHERE username = '$username_input' ");
+                    $user_row = $user->fetch(PDO::FETCH_ASSOC);
+                    if ($user_row == null){
+                        echo "no such user";
+                    }
+                    else{
+                        if ($user_row['password'] == $userpwd_input) {
+                            setcookie('user', $_POST['username'], time()+3600); //60min 
+                            setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
+                            header('Location: index.php');
+                        }
+                        else{
+                            echo "wrong password";
+                        }
+                    }
                 }
             }
         ?>
@@ -26,9 +44,9 @@
         <div class="row">
             <div class="col-md-3"></div>
         <div class="col-md-6">
-            <form method="post" onsubmit="return check()">
+            <form method="post" action="login.php">
                 <label>Username: </label> 
-                <input type="text" id="username" name="username" class="form-control form-control-lg" autofocus="" required="" onblur="checkusername()">
+                <input type="text" id="username" name="username" class="form-control form-control-lg" autofocus="" required="">
                 <div id="user-msg" class="feedback"></div> 
                 <br>
                 <label>Password: </label> 
