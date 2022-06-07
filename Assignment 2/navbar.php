@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="styles/UVA.png"><img src="styles/uva.png" height="30" style="border: 5px"/></a>
+      <a class="navbar-brand" href="index.php"><img src="styles/uva.png" height="30" style="border: 5px"/></a>
       
       <span class="navbar-text">
         Hello <?php if(isset($_COOKIE['user'])) echo $_COOKIE['user'] ?>
