@@ -15,6 +15,7 @@
         <?php include "navbar.php" ?>
         <div class="container">
             <h1>Logged Out</h1>
+            <p>Redirecting to login...</p>
         </div>
 
         <?php
