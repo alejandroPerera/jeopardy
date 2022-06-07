@@ -20,9 +20,9 @@ require_once "session_create.php";
         
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 if(strlen($_POST['username']) > 0 && strlen($_POST['pwd']) > 0){ //isset, !empty 
-                    $username_input = $_POST['username'];
+                    $username_input = $_POST['email'];
                     $userpwd_input = $_POST['pwd'];
-                    $user = $db->query(" SELECT * FROM user_info WHERE username = '$username_input' ");
+                    $user = $db->query(" SELECT * FROM user_info WHERE email = '$username_input' ");
                     $user_row = $user->fetch(PDO::FETCH_ASSOC);
                     if ($user_row == null){
                         echo "no such user";
