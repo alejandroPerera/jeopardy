@@ -26,10 +26,10 @@ require_once "session_create.php";
                     echo "$useremail_input";
                     echo "$userpwd_input";
                     $txt = "INSERT INTO `user_info` (`email`, `password`, `first_name`, `last_name`) VALUES ('$useremail_input', '$userpwd_input', '$userfn_input', '$userln_input');\n";
-                    // $myFile = "sql.txt";
-                    // $db_sql = fopen($myFile, "w") or die("can't open file");
-                    // fwrite($db_sql, $txt);
-                    // fclose($db_sql);  
+                    $myFile = "sql.txt";
+                    $db_sql = fopen($myFile, "w") or die("can't open file");
+                    fwrite($db_sql, $txt);
+                    fclose($db_sql);  
                     $db->query($txt);
                     setcookie('user', $_POST['email_name'], time()+3600); //60min 
                     setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
