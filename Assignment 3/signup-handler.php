@@ -7,7 +7,7 @@ $first_name_msg = $last_name_msg = $email_name_msg = $pwd_msg = NULL;
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
    if (empty($_POST['first_name']))
-      $first_name_msg = "Please enter your first name";
+      $first_name_msg = "--->Please enter your first name";
    else
    {
       $first_name = trim($_POST['first_name']);
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
    }
 
    if (empty($_POST['last_name']))
-      $last_name_msg = "Please enter your last name";
+      $last_name_msg = "---> Please enter your last name";
    else
    {
       $last_name = trim($_POST['last_name']);
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
    }
 		
    if (empty($_POST['email_name']))
-      $email_name_msg = "Please enter your email address";
+      $email_name_msg = "---> Please enter your email address";
    else
    {
       $email_name = trim($_POST['email_name']);
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
    }
 			
    if (empty($_POST['pwd']))
-      $pwd_msg = "Please enter password";
+      $pwd_msg = "---> Please enter password";
    else
    {
       $pwd = trim($_POST['pwd']);
