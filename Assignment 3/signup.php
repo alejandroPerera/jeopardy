@@ -3,6 +3,7 @@
 <?php
 require_once "db_connection.php";
 require_once "session_create.php";
+include "signup-handler.php"
 ?>
     <head>
         <meta charset="utf-8">
@@ -37,22 +38,26 @@ require_once "session_create.php";
                 }
             }
         ?>
-        <form class="row g-3 px-4" method="post" action="signup.php">
+        <form class="row g-3 px-4" method="post" action="<?php $_SERVER['PHP_SELF'] ?>" novalidate>
             <div class="col-6">
-                <label class="form-label">First name</label>
-                <input type="text" name="first_name" class="form-control form-control-lg" id="inputEmail4" placeholder="John" required="">
+                <label class="form-label">First Name</label>
+                <span class="msg" style="color:red"><?php if (empty($_POST['first_name'])) echo $first_name_msg ?></span>
+                <input type="text" name="first_name" class="form-control form-control-lg" id="first_name" placeholder="John" required="">
             </div>
             <div class="col-6">
-                <label for="inputPassword4" class="form-label">Last name</label>
-                <input type="text" name="last_name" class="form-control form-control-lg" id="inputPassword4" placeholder="Smith" required="">
+                <label class="form-label">Last Name</label>
+                <span class="msg" style="color:red"><?php if (empty($_POST['last_name'])) echo $last_name_msg ?></span>
+                <input type="text" name="last_name" class="form-control form-control-lg" id="last_name" placeholder="Smith" required="">
             </div>
             <div class="col-6">
                 <label class="form-label">Email</label>
-                <input type="email" name="email_name" class="form-control form-control-lg" placeholder="email@address.com" required="">
+                <span class="msg" style="color:red"><?php if (empty($_POST['email_name'])) echo $email_name_msg ?></span>
+                <input type="email" name="email_name" class="form-control form-control-lg" id="email_name" placeholder="email@address.com" required="">
             </div>
             <div class="col-6">
                 <label class="form-label">Password</label>
-                <input type="password" name = "pwd" class="form-control form-control-lg" placeholder="password" required="">
+                <span class="msg" style="color:red"><?php if (empty($_POST['pwd'])) echo $pwd_msg ?></span>
+                <input type="password" name = "pwd" class="form-control form-control-lg" id="pwd" placeholder="password" required="">
             </div>
             <div class="d-grid gap-2 py-2">
                 <input type="submit" class="btn btn-primary btn-lg" value="Sign up">
