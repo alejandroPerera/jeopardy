@@ -34,8 +34,8 @@ require_once "session_create.php";
                     // fwrite($db_sql, $txt);
                     // fclose($db_sql);  
                     $db->query($txt);
-                    // setcookie('user', $_POST['email_name'], time()+3600); //60min 
-                    // setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
+                    setcookie('title', $_POST['title'], time()+3600); //60min 
+                    setcookie('author', $_POST['author'], time()+3600);
                     header('Location: creategame2.php');
                 }
             }

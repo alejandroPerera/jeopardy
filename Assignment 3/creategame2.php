@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
-
+<?php
+require_once "db_connection.php";
+require_once "session_create.php";
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +17,31 @@
 <body>
     <?php 
         include "navbar.php";
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            if(strlen($_POST['point_1']) > 0 && strlen($_POST['point_2']) > 0 && strlen($_POST['point_3']) > 0 && strlen($_POST['point_4']) > 0 && strlen($_POST['point_5']) > 0
+             && strlen($_POST['category 1']) > 0 && strlen($_POST['category 2']) > 0 && strlen($_POST['category 3']) > 0 && strlen($_POST['category 4']) > 0 && strlen($_POST['category 5']) > 0
+             && strlen($_POST['question 1']) > 0 && strlen($_POST['question 2']) > 0 && strlen($_POST['question 3']) > 0 && strlen($_POST['question 4']) > 0 && strlen($_POST['question 5']) > 0
+             && strlen($_POST['question 6']) > 0 && strlen($_POST['question 7']) > 0 && strlen($_POST['question 8']) > 0 && strlen($_POST['question 9']) > 0 && strlen($_POST['question 10']) > 0
+             && strlen($_POST['question 11']) > 0 && strlen($_POST['question 12']) > 0 && strlen($_POST['question 13']) > 0 && strlen($_POST['question 14']) > 0 && strlen($_POST['question 15']) > 0
+             && strlen($_POST['question 16']) > 0 && strlen($_POST['question 17']) > 0 && strlen($_POST['question 18']) > 0 && strlen($_POST['question 19']) > 0 && strlen($_POST['question 20']) > 0
+             && strlen($_POST['question 21']) > 0 && strlen($_POST['question 22']) > 0 && strlen($_POST['question 23']) > 0 && strlen($_POST['question 24']) > 0 && strlen($_POST['question 25']) > 0            
+            ){ //isset, !empty 
+                $usertitle_input = $_COOKIE['title'];
+                $userauthor_input = $_COOKIE['author'];
+                $txt = "INSERT INTO `jeopardy_game_questions` (`title`, `author`, `question`, `points`, `category`) VALUES ('$usertitle_input', '$userauthor_input', '$usercategory_input', '$userdescription_input');\n
+                
+                
+                ";
+                // $myFile = "sql.txt";
+                // $db_sql = fopen($myFile, "w") or die("can't open file");
+                // fwrite($db_sql, $txt);
+                // fclose($db_sql);  
+                $db->query($txt);
+                // setcookie('user', $_POST['email_name'], time()+3600); //60min 
+                // setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
+                header('Location: creategame2.php');
+            }
+        }
     ?>
     <form method="post" onsubmit="">
         <div class="container">
