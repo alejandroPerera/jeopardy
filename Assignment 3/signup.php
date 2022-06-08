@@ -3,7 +3,8 @@
 <?php
 require_once "db_connection.php";
 require_once "session_create.php";
-include "signup-handler.php"
+include "signup-handler.php";
+include "session_create.php";
 ?>
     <head>
         <meta charset="utf-8">
@@ -38,21 +39,25 @@ include "signup-handler.php"
                 }
             }
         ?>
+        
         <form class="row g-3 px-4" method="post" action="<?php $_SERVER['PHP_SELF'] ?>" novalidate>
             <div class="col-6">
                 <label class="form-label">First Name</label>
                 <span class="msg" style="color:red"><?php if (empty($_POST['first_name'])) echo $first_name_msg ?></span>
-                <input type="text" name="first_name" class="form-control form-control-lg" id="first_name" placeholder="John" required="">
+                <input type="text" name="first_name" class="form-control form-control-lg" id="first_name" placeholder="John" required=""
+                value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name'] ?>">
             </div>
             <div class="col-6">
                 <label class="form-label">Last Name</label>
                 <span class="msg" style="color:red"><?php if (empty($_POST['last_name'])) echo $last_name_msg ?></span>
-                <input type="text" name="last_name" class="form-control form-control-lg" id="last_name" placeholder="Smith" required="">
+                <input type="text" name="last_name" class="form-control form-control-lg" id="last_name" placeholder="Smith" required=""
+                value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name'] ?>">
             </div>
             <div class="col-6">
                 <label class="form-label">Email</label>
                 <span class="msg" style="color:red"><?php if (empty($_POST['email_name'])) echo $email_name_msg ?></span>
-                <input type="email" name="email_name" class="form-control form-control-lg" id="email_name" placeholder="email@address.com" required="">
+                <input type="email" name="email_name" class="form-control form-control-lg" id="email_name" placeholder="email@address.com" required=""
+                value="<?php if (isset($_POST['email_name'])) echo $_POST['email_name'] ?>">
             </div>
             <div class="col-6">
                 <label class="form-label">Password</label>
