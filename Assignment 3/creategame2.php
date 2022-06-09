@@ -17,60 +17,104 @@ require_once "session_create.php";
 <body>
     <?php 
         include "navbar.php";
+        function get_question_box($x) {
+            $name = "question_" . $x;
+            return $name;
+        }
         if($_SERVER['REQUEST_METHOD'] == "POST"){
+            echo strlen($_POST['category_1']);
             if(strlen($_POST['point_1']) > 0 && strlen($_POST['point_2']) > 0 && strlen($_POST['point_3']) > 0 && strlen($_POST['point_4']) > 0 && strlen($_POST['point_5']) > 0
-             && strlen($_POST['category 1']) > 0 && strlen($_POST['category 2']) > 0 && strlen($_POST['category 3']) > 0 && strlen($_POST['category 4']) > 0 && strlen($_POST['category 5']) > 0
-             && strlen($_POST['question 1']) > 0 && strlen($_POST['question 2']) > 0 && strlen($_POST['question 3']) > 0 && strlen($_POST['question 4']) > 0 && strlen($_POST['question 5']) > 0
-             && strlen($_POST['question 6']) > 0 && strlen($_POST['question 7']) > 0 && strlen($_POST['question 8']) > 0 && strlen($_POST['question 9']) > 0 && strlen($_POST['question 10']) > 0
-             && strlen($_POST['question 11']) > 0 && strlen($_POST['question 12']) > 0 && strlen($_POST['question 13']) > 0 && strlen($_POST['question 14']) > 0 && strlen($_POST['question 15']) > 0
-             && strlen($_POST['question 16']) > 0 && strlen($_POST['question 17']) > 0 && strlen($_POST['question 18']) > 0 && strlen($_POST['question 19']) > 0 && strlen($_POST['question 20']) > 0
-             && strlen($_POST['question 21']) > 0 && strlen($_POST['question 22']) > 0 && strlen($_POST['question 23']) > 0 && strlen($_POST['question 24']) > 0 && strlen($_POST['question 25']) > 0            
+             && strlen($_POST['category_1']) > 0 && strlen($_POST['category_2']) > 0 && strlen($_POST['category_3']) > 0 && strlen($_POST['category_4']) > 0 && strlen($_POST['category_5']) > 0
+             && strlen($_POST['question_1']) > 0 && strlen($_POST['question_2']) > 0 && strlen($_POST['question_3']) > 0 && strlen($_POST['question_4']) > 0 && strlen($_POST['question_5']) > 0
+             && strlen($_POST['question_6']) > 0 && strlen($_POST['question_7']) > 0 && strlen($_POST['question_8']) > 0 && strlen($_POST['question_9']) > 0 && strlen($_POST['question_10']) > 0
+             && strlen($_POST['question_11']) > 0 && strlen($_POST['question_12']) > 0 && strlen($_POST['question_13']) > 0 && strlen($_POST['question_14']) > 0 && strlen($_POST['question_15']) > 0
+             && strlen($_POST['question_16']) > 0 && strlen($_POST['question_17']) > 0 && strlen($_POST['question_18']) > 0 && strlen($_POST['question_19']) > 0 && strlen($_POST['question_20']) > 0
+             && strlen($_POST['question_21']) > 0 && strlen($_POST['question_22']) > 0 && strlen($_POST['question_23']) > 0 && strlen($_POST['question_24']) > 0 && strlen($_POST['question_25']) > 0            
             ){ //isset, !empty 
+                echo "success";
                 $usertitle_input = $_COOKIE['title'];
                 $userauthor_input = $_COOKIE['author'];
-                $txt = "INSERT INTO `jeopardy_game_questions` (`title`, `author`, `question`, `points`, `category`) VALUES ('$usertitle_input', '$userauthor_input', '$usercategory_input', '$userdescription_input');\n
+                echo $usertitle_input;
+                echo $userauthor_input;
+                for ($i = 1; $i <= 25; $i++){
+                    if ($i % 5 == 1){
+                        $point = $_POST['point_1'];
+                    }
+                    else if ($i % 5 == 2){
+                        $point = $_POST['point_2'];
+                    }
+                    else if ($i % 5 == 3){
+                        $point = $_POST['point_3'];
+                    }
+                    else if ($i % 5 == 4){
+                        $point = $_POST['point_4'];
+                    }
+                    else if ($i % 5 == 0){
+                        $point = $_POST['point_5'];
+                    }
+                    if ($i / 5 <= 1){
+                        $category = $_POST['category_1'];
+                    }
+                    else if ($i / 5 <= 2){
+                        $category = $_POST['category_2'];
+                    }
+                    else if ($i / 5 <= 3){
+                        $category = $_POST['category_3'];
+                    }
+                    else if ($i / 5 <= 4){
+                        $category = $_POST['category_4'];
+                    }
+                    else if ($i / 5 <= 5){
+                        $category = $_POST['category_5'];
+                    }
+                    echo $point;
+                    $question = $_POST[get_question_box($i)];
+                    echo "question:";
+                    $txt = "INSERT INTO `jeopardy_game_questions` (`title`, `author`, `question`, `points`, `category`) 
+                    VALUES ('$usertitle_input', '$userauthor_input', '$question', '$point', '$category');\n";
+                    // echo $txt;
+                    $db->query($txt);
+                }
                 
-                
-                ";
                 // $myFile = "sql.txt";
                 // $db_sql = fopen($myFile, "w") or die("can't open file");
                 // fwrite($db_sql, $txt);
                 // fclose($db_sql);  
-                $db->query($txt);
+                
                 // setcookie('user', $_POST['email_name'], time()+3600); //60min 
                 // setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
-                header('Location: creategame2.php');
+                header('Location: index.php');
             }
         }
     ?>
-    <form method="post" onsubmit="">
+    <form method="post" action="creategame2.php">
         <div class="container">
             <div class="container">
                 <div class="row">
                     <div class="col-md"></div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_1" name="point_1" placeholder="100" onblur="check_point()"/>
+                            <input class="point" type="text" id="point_1" name="point_1" value="100" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_2" name="point 2" placeholder="200" onblur="check_point()"/>
+                            <input class="point" type="text" id="point_2" name="point 2" value="200" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_3" name="point 3" placeholder="300" onblur="check_point()"/>
+                            <input class="point" type="text" id="point_3" name="point 3" value="300" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_4" name="point 4" placeholder="400" onblur="check_point()"/>
+                            <input class="point" type="text" id="point_4" name="point 4" value="400" onblur="check_point()"/>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_5" name="point 5" placeholder="500" onblur="check_point()"/>
+                            <input class="point" type="text" id="point_5" name="point 5" value="500" onblur="check_point()"/>
                         </div>
                     </div>
                 </div>
@@ -78,110 +122,110 @@ require_once "session_create.php";
             <div class="container">
                 <div class="row">
                     <div class="col-md category_block">
-                        <input type="text" name="category 1" placeholder="category 1" />
+                        <input type="text" name="category_1" placeholder="category 1" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 1" placeholder="question 1" />
+                        <input type="text" name="question_1" placeholder="question 1" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 2" placeholder="question 2" />
+                        <input type="text" name="question_2" placeholder="question 2" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 3" placeholder="question 3" />
+                        <input type="text" name="question_3" placeholder="question 3" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 4" placeholder="question 4" />
+                        <input type="text" name="question_4" placeholder="question 4" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 5" placeholder="question 5" />
+                        <input type="text" name="question_5" placeholder="question 5" />
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md category_block">
-                        <input type="text" name="category 2" placeholder="category 2" />
+                        <input type="text" name="category_2" placeholder="category 2" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 6" placeholder="question 6" />
+                        <input type="text" name="question_6" placeholder="question 6" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 7" placeholder="question 7" />
+                        <input type="text" name="question_7" placeholder="question 7" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 8" placeholder="question 8" />
+                        <input type="text" name="question_8" placeholder="question 8" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 9" placeholder="question 9" />
+                        <input type="text" name="question_9" placeholder="question 9" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 10" placeholder="question 10" />
+                        <input type="text" name="question_10" placeholder="question 10" />
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">     
                     <div class="col-md category_block">
-                        <input type="text" name="category 3" placeholder="category 3" />
+                        <input type="text" name="category_3" placeholder="category 3" />
                     </div>       
                     <div class="col-md question_block">
-                        <input type="text" name="question 11" placeholder="question 11" />
+                        <input type="text" name="question_11" placeholder="question 11" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 12" placeholder="question 12" />
+                        <input type="text" name="question_12" placeholder="question 12" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 13" placeholder="question 13" />
+                        <input type="text" name="question_13" placeholder="question 13" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 14" placeholder="question 14" />
+                        <input type="text" name="question_14" placeholder="question 14" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 15" placeholder="question 15" />
+                        <input type="text" name="question_15" placeholder="question 15" />
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md category_block">
-                        <input type="text" name="category 4" placeholder="category 4" />
+                        <input type="text" name="category_4" placeholder="category 4" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 16" placeholder="question 16" />
+                        <input type="text" name="question_16" placeholder="question 16" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 17" placeholder="question 17" />
+                        <input type="text" name="question_17" placeholder="question 17" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 18" placeholder="question 18" />
+                        <input type="text" name="question_18" placeholder="question 18" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 19" placeholder="question 19" />
+                        <input type="text" name="question_19" placeholder="question 19" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 20" placeholder="question 20" />
+                        <input type="text" name="question_20" placeholder="question 20" />
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md category_block">
-                        <input type="text" name="category 5" placeholder="category 5" />
+                        <input type="text" name="category_5" placeholder="category 5" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 21" placeholder="question 21" />
+                        <input type="text" name="question_21" placeholder="question 21" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 22" placeholder="question 22" />
+                        <input type="text" name="question_22" placeholder="question 22" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 23" placeholder="question 23" />
+                        <input type="text" name="question_23" placeholder="question 23" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 24" placeholder="question 24" />
+                        <input type="text" name="question_24" placeholder="question 24" />
                     </div>
                     <div class="col-md question_block">
-                        <input type="text" name="question 25" placeholder="question 25" />
+                        <input type="text" name="question_25" placeholder="question 25" />
                     </div>
                 </div>
             </div>
