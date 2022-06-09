@@ -26,13 +26,9 @@ require_once "session_create.php";
                 if(strlen($_POST['title']) > 0 && strlen($_POST['author']) > 0 && strlen($_POST['category']) > 0 && strlen($_POST['description']) > 0){ //isset, !empty 
                     $usertitle_input = $_POST['title'];
                     $userauthor_input = $_POST['author'];
-                    $usercategory_input = $_POST['caegory'];
+                    $usercategory_input = $_POST['category'];
                     $userdescription_input = $_POST['description'];
-                    $txt = "INSERT INTO `jeopardy_games` (`title`, `author`, `category`, `description`) VALUES ('$usertitle_input', '$userauthor_input', '$usercategory_input', '$userdescription_input');\n";
-                    // $myFile = "sql.txt";
-                    // $db_sql = fopen($myFile, "w") or die("can't open file");
-                    // fwrite($db_sql, $txt);
-                    // fclose($db_sql);  
+                    $txt = "INSERT INTO `jeopardy_games` (`title`, `author`, `category`, `description`) VALUES ('$usertitle_input', '$userauthor_input', '$usercategory_input', '$userdescription_input');\n";  
                     $db->query($txt);
                     setcookie('title', $_POST['title'], time()+3600); //60min 
                     header('Location: creategame2.php');
