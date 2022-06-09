@@ -3,8 +3,7 @@
 <?php
 require_once "db_connection.php";
 require_once "session_create.php";
-include "signup-handler.php";
-include "session_create.php";
+require_once "signup-handler.php";
 ?>
     <head>
         <meta charset="utf-8">

@@ -17,6 +17,7 @@ require_once "session_create.php";
 <body>
     <?php 
         include "navbar.php";
+        echo $_SESSION['email_name'];
     ?>
 
     <?php
@@ -35,7 +36,6 @@ require_once "session_create.php";
                     // fclose($db_sql);  
                     $db->query($txt);
                     setcookie('title', $_POST['title'], time()+3600); //60min 
-                    setcookie('author', $_POST['author'], time()+3600);
                     header('Location: creategame2.php');
                 }
             }
@@ -45,7 +45,7 @@ require_once "session_create.php";
             height: 35vh; background-size: cover; background-position: center; position: relative; max-width:100%">
         <h1 style='color:white'>Create Your Own Game!</h1> 
     </div>
-
+    <?php echo $_SESSION['first_name'] . $_SESSION['last_name']?>
     <form class = 'px-4' method="post" action="creategame1.php" novalidate>
         <div class="form-group py-2">
             <label for="exampleFormControlInput1">Title</label>
@@ -54,7 +54,7 @@ require_once "session_create.php";
 
         <div class="form-group py-2">
             <label for="exampleFormControlInput1">Author</label>
-            <input type="email" name="author" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="John Smith">
+            <input type="email" name="author" class="form-control form-control-lg" id="exampleFormControlInput1" value="<?php echo $_SESSION['first_name'] . $_SESSION['last_name']?>">
         </div>
 
         <div class="form-group py-2">
