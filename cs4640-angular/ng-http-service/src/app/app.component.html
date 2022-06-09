@@ -1,0 +1,132 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<body [class.dark]="darkMode">
+<div class="container">
+  <h1>{{ title }}</h1>
+  <form #orderForm="ngForm" (ngSubmit)="confirmOrder(orderForm.value)">
+    <div class="mb-2">
+      <label>Name: </label>
+      <input 
+        required
+        minlength="3"
+        #name="ngModel"
+        [class.is-invalid]="(name.invalid && name.touched)"
+
+        [(ngModel)]="orderModel.name" 
+      type="text" class="form-control" name="name">
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched">
+        Name is required and must be at least 3 characters
+      </small>
+    </div>
+  
+    <div class="mb-2">
+      <label>Email: </label>
+      <input 
+        required
+        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+        #email="ngModel"
+        [class.is-invalid]="(email.invalid && email.touched)"
+
+        [(ngModel)]="orderModel.email" 
+        type="email" class="form-control" name="email">
+        <small class="text-danger" [class.d-none]="email.valid || email.untouched">
+          Email is required and must be properly formatted
+        </small>
+    </div>
+  
+    <div class="mb-2">
+      <label>Phone: </label>
+      <input 
+        required
+        pattern="^\d{10}$"
+        #phone="ngModel"
+        [class.is-invalid]="(phone.invalid && phone.touched)"
+
+        [(ngModel)]="orderModel.phone" 
+        type="tel" class="form-control" name="phone">
+        <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">
+          Phone number is required and must be 10 digits
+        </small>
+    </div>
+   
+    <div class="mb-2">
+      <select 
+        required
+        #drink_option="ngModel"
+        [class.is-invalid]="(drink_option.invalid && drink_option.touched)"
+        
+        [(ngModel)]="orderModel.drink" 
+        class="form-select bg-info" name="drink_option">
+        <option 
+        
+        value="">What would you like to drink? </option>
+        <option *ngFor="let item of drinks" >{{ item }}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="drink_option.valid || drink_option.untouched">
+        Please select your drink
+      </small>
+    </div>
+    
+  
+    <div class="form-group">
+      <label>Hot or cold?</label>
+      <div class="form-check">
+        <input 
+        required
+        #tempPreference="ngModel"
+        [class.is-invalid]="(tempPreference.invalid && tempPreference.touched)"
+        [(ngModel)]="orderModel.tempPreference" 
+        class="form-check-input" type="radio" name="tempPreference" value="hot">
+        <label class="form-check-label">Hot</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="tempPreference" value="cold"> 
+        <label class="form-check-label">Cold</label>
+      </div>
+    </div>
+    
+    <div class="form-check mb-3">
+      <input 
+
+      [(ngModel)]="orderModel.sendText" 
+      class="form-check-input" type="checkbox" name="sendmsg">
+      <label class="form-check-label">Send me a text message when my order is ready </label>
+    </div>
+      
+    <button 
+      [disabled]="!orderForm.form.valid"
+    (click)="onSubmit_OrderList(orderForm.value)" class="btn btn-primary">Place order</button>
+    <button (click)="changeDarkMode()" class="btn btn-secondary">Click to change mode</button>
+  </form>  
+  
+  <hr/>
+  <h3>Response from php</h3>
+  <p>{{ responsedata | json }}</p>
+  <!-- <ul *ngFor="let item of responsedata">
+    <li>{{ item.name }}, {{ item.email }}, {{ item.phone }}, {{ item.drink_option }}, 
+      {{ item.tempPreference }}, {{ item.sendmsg }}, {{ item.order_date }}</li>
+  </ul> -->
+
+  <div *ngFor="let order of responsedata">
+    <div *ngFor="let item of order">
+    <p>{{ item.name }}, {{ item.email }}, {{ item.phone }}, {{ item.drink }}, 
+      {{ item.tempPreference }}, {{ item.sendText }}, {{ item.order_date }}</p>
+    </div>
+  </div>
+
+  <hr/>
+  <h3>Order Confirmation</h3>
+  <i><font color="green">{{ confirm_msg }}</font></i>  <br>
+  Data submitted: 
+  <i><font color="green">Display the submitted order</font></i>
+  <hr/>
+  <b>orderList</b> {{ orderList | json}}
+
+  <hr/>
+  <b>from above form: </b>{{ orderForm.value | json}}
+  <p>{{ orderForm.value.name }}</p>
+  <hr/>
+  <b>from model: </b>{{ orderModel | json }}
+  
+  </div>
+  </body>
