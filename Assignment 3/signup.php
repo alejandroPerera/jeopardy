@@ -35,7 +35,7 @@ include "session_create.php";
                     $db->query($txt);
                     setcookie('user', $_POST['email_name'], time()+3600); //60min 
                     setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
-                    header('Location: index.php');
+                    header('Location: login.php');
                 }
             }
         ?>
@@ -45,23 +45,23 @@ include "session_create.php";
                 <label class="form-label">First Name</label>
                 <span class="msg" style="color:red"><?php if (empty($_POST['first_name'])) echo $first_name_msg ?></span>
                 <input type="text" name="first_name" class="form-control form-control-lg" id="first_name" placeholder="John" required=""
-                value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name'] ?>">
+                value="<?php if (isset($_SESSION['first_name'])) echo $_POST['first_name'] ?>">
             </div>
             <div class="col-6">
                 <label class="form-label">Last Name</label>
-                <span class="msg" style="color:red"><?php if (empty($_POST['last_name'])) echo $last_name_msg ?></span>
+                <span class="msg" style="color:red"><?php if (empty($_SESSION['last_name'])) echo $last_name_msg ?></span>
                 <input type="text" name="last_name" class="form-control form-control-lg" id="last_name" placeholder="Smith" required=""
-                value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name'] ?>">
+                value="<?php if (isset($_SESSION['last_name'])) echo $_SESSION['last_name'] ?>">
             </div>
             <div class="col-6">
                 <label class="form-label">Email</label>
-                <span class="msg" style="color:red"><?php if (empty($_POST['email_name'])) echo $email_name_msg ?></span>
+                <span class="msg" style="color:red"><?php if (empty($_SESSION['email_name'])) echo $email_name_msg ?></span>
                 <input type="email" name="email_name" class="form-control form-control-lg" id="email_name" placeholder="email@address.com" required=""
-                value="<?php if (isset($_POST['email_name'])) echo $_POST['email_name'] ?>">
+                value="<?php if (isset($_SESSION['email_name'])) echo $_SESSION['email_name'] ?>">
             </div>
             <div class="col-6">
                 <label class="form-label">Password</label>
-                <span class="msg" style="color:red"><?php if (empty($_POST['pwd'])) echo $pwd_msg ?></span>
+                <span class="msg" style="color:red"><?php if (empty($_SESSION['pwd'])) echo $pwd_msg ?></span>
                 <input type="password" name = "pwd" class="form-control form-control-lg" id="pwd" placeholder="password" required="">
             </div>
             <div class="d-grid gap-2 py-2">

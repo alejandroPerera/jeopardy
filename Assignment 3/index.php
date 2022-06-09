@@ -12,11 +12,14 @@
 </head>
 
 <body>
-    <?php include "./navbar.php" ?>
+    <?php 
+    include "./navbar.php";
+    require "session_create.php";
+    ?>
 
     <?php
-        if(isset($_COOKIE['user']))   // COOKIES
-            {
+       if(isset($_COOKIE['email']))   // COOKIES
+       {
     ?>
 
     <div class="container bg-image" style="background-image: url('styles/bg.jpg');
@@ -41,7 +44,6 @@
         <div class="row">
             <div class="col custom-col">
                 <h1>My Games</h1>
-
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">

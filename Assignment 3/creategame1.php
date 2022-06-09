@@ -17,7 +17,7 @@
     ?>
 
     <?php
-        if(isset($_COOKIE['user']))   // COOKIES
+        if(isset($_COOKIE['email']))   // COOKIES
             {
     ?>
 
