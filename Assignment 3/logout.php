@@ -12,7 +12,8 @@
     </head>
     <body>
         
-        <?php include "navbar.php" ?>
+        <?php include "navbar.php";
+            require_once "session_create.php";?>
         <div class="container">
             <h1>Logged Out</h1>
             <p>Redirecting to login...</p>
@@ -28,7 +29,7 @@
             }
         ?>
 
-    <?php session_start();
+    <?php 
         if (count($_SESSION) > 0){
         foreach ($_SESSION as $k => $val){
             unset($_SESSION[$k]);

@@ -1,7 +1,7 @@
 <?php
 if(session_status() === PHP_SESSION_NONE)
     session_start(); 
-    
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(strlen($_POST['first_name']) > 0){
         $_SESSION['first_name'] = $_POST['first_name'];
@@ -14,6 +14,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     if(strlen($_POST['pwd']) > 0){
         $_SESSION['pwd'] = $_POST['pwd'];
-    }
+    }  
 }
 ?>

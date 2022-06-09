@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 require_once "db_connection.php";
-require_once "session_create.php";
+require "session_create.php";
 ?>
     <head>
         <meta charset="utf-8">
@@ -19,8 +19,8 @@ require_once "session_create.php";
             include "navbar.php";
         
             if($_SERVER['REQUEST_METHOD'] == "POST"){
-                if(strlen($_POST['username']) > 0 && strlen($_POST['pwd']) > 0){ //isset, !empty 
-                    $username_input = $_POST['username'];
+                if(strlen($_POST['email']) > 0 && strlen($_POST['pwd']) > 0){ //isset, !empty 
+                    $username_input = $_POST['email'];
                     $userpwd_input = $_POST['pwd'];
                     $user = $db->query(" SELECT * FROM user_info WHERE email = '$username_input' ");
                     $user_row = $user->fetch(PDO::FETCH_ASSOC);
@@ -29,8 +29,11 @@ require_once "session_create.php";
                     }
                     else{
                         if ($user_row['password'] == $userpwd_input) {
-                            setcookie('user', $_POST['username'], time()+3600); //60min 
+                            setcookie('email', $_POST['email'], time()+3600); //60min 
                             setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
+                            $_SESSION['email'] = $username_input; 
+                            $_SESSION['first_name'] = $user_row['first_name'];
+                            $_SESSION['last_name'] = $user_row['last_name'];
                             header('Location: index.php');
                         }
                         else{
@@ -45,8 +48,8 @@ require_once "session_create.php";
             <div class="col-md-3"></div>
         <div class="col-md-6">
             <form method="post" action="login.php">
-                <label>Username: </label> 
-                <input type="text" id="username" name="username" class="form-control form-control-lg" autofocus="" required="">
+                <label>Email: </label> 
+                <input type="text" id="email" name="email" class="form-control form-control-lg" autofocus="" required="">
                 <div id="user-msg" class="feedback"></div> 
                 <br>
                 <label>Password: </label> 

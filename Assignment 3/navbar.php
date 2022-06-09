@@ -1,9 +1,12 @@
+<?php
+  require_once "session_create.php"
+  ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php"><img src="styles/uva.png" height="30" style="border: 5px"/></a>
       
       <span class="navbar-text">
-        Hello <?php if(isset($_COOKIE['user'])) echo $_COOKIE['user'] ?>
+        Hello <?php if(isset($_SESSION['first_name'])) echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?> 
       </span>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +22,7 @@
             </li>
             
             <?php
-              if(isset($_COOKIE['user'])) { // COOKIES
+              if(isset($_COOKIE['email'])) { // COOKIES
             ?>
               <li class="nav-item">
                 <a class="nav-link" id='login-tab' href="logout.php">Sign Out</a>
