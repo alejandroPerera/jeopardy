@@ -28,6 +28,16 @@
             }
         ?>
 
+    <?php session_start();
+        if (count($_SESSION) > 0){
+        foreach ($_SESSION as $k => $val){
+            unset($_SESSION[$k]);
+        }
+        
+        setcookie('PHPSESSID', '', time()-10, "/");
+        }
+        ?>
+
         <script>
             (function () {
                 var highlight = document.getElementById('login-tab');   //anonymous function
