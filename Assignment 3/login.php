@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 require_once "db_connection.php";
+require_once "session_create.php";
 ?>
     <head>
         <meta charset="utf-8">
@@ -28,7 +29,6 @@ require_once "db_connection.php";
                     }
                     else{
                         if ($user_row['password'] == $userpwd_input) {
-                            require_once "session_create.php";
                             setcookie('user', $_POST['username'], time()+3600); //60min 
                             setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
                             header('Location: index.php');

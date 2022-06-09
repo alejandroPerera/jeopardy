@@ -17,7 +17,6 @@ require_once "session_create.php";
 <body>
     <?php 
         include "navbar.php";
-        echo $_SESSION['email_name'];
     ?>
 
     <?php
