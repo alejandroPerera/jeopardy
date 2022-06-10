@@ -15,6 +15,9 @@ require_once "db_connection.php";
 </head>
 <body>
     <?php 
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
         include "navbar.php";
         function get_question_box($x) {
             $name = "question_" . $x;
@@ -84,6 +87,8 @@ require_once "db_connection.php";
         // echo $author;
         // echo $title;
         $categories = [];
+        $questions = [];
+        $points_inorder = [];
         $result = $db->query(" SELECT question, points, category FROM jeopardy_game_questions WHERE author='$author' AND title='$title' ");
         while ($row = $result->fetch()){
             // echo $row['points'];
@@ -99,7 +104,13 @@ require_once "db_connection.php";
         // }
         $index = 1;
         // echo min($points);
-        $temp = min($points);
+        if (sizeof($points) > 0){
+            $temp = min($points);
+        }
+        else{
+            $temp = -1;
+        }
+        // echo "true";
         function smallest_value($x){
             // echo "haha";
             $smallest = -1;
@@ -126,7 +137,6 @@ require_once "db_connection.php";
             }
             return $smallest;
         }
-        $points_inorder = [];
         while ($temp != -1){
             $change_points = false;
             // echo $temp;
@@ -142,7 +152,7 @@ require_once "db_connection.php";
                 }
             }
         }
-        $questions = [];
+        
         foreach ($points_inorder as $p){
             foreach ($categories as $c){
                 // echo $c;
@@ -160,8 +170,8 @@ require_once "db_connection.php";
                     <div class="col-md"></div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_1" name="point_1" value="
-                            <?php if (sizeof($points_inorder) < 1){
+                            <input class="point" type="text" id="point_1" name="point_1" value="<?php 
+                            if (sizeof($points_inorder) < 1){
                                 echo "100";
                             }
                             else{
@@ -172,8 +182,8 @@ require_once "db_connection.php";
                     </div>
                     <div class="col-md">
                         <div class="col-md point_block">
-                            <input class="point" type="text" id="point_2" name="point 2" value="
-                            <?php if (sizeof($points_inorder) < 2){
+                            <input class="point" type="text" id="point_2" name="point 2" value="<?php 
+                            if (sizeof($points_inorder) < 2){
                                 echo "200";
                             }
                             else{
@@ -288,13 +298,13 @@ require_once "db_connection.php";
                 <div class="row">
                     <div class="col-md category_block">
                         <input type="text" name="category_2" value="<?php
-                        if (sizeof($points_inorder) < 2){
+                        if (sizeof($categories) < 2){
                             echo "";
                         }
                         else{
                             echo $categories[1];
                         }
-                        ?>"placeholder="category 2" />
+                        ?>" placeholder="category 2" />
                     </div>
                     <div class="col-md question_block">
                         <input type="text" name="question_6" value="<?php
@@ -352,7 +362,7 @@ require_once "db_connection.php";
                 <div class="row">     
                     <div class="col-md category_block">
                         <input type="text" name="category_3" value="<?php
-                        if (sizeof($points_inorder) < 3){
+                        if (sizeof($categories) < 3){
                             echo "";
                         }
                         else{
@@ -416,7 +426,7 @@ require_once "db_connection.php";
                 <div class="row">
                     <div class="col-md category_block">
                         <input type="text" name="category_4" value="<?php
-                        if (sizeof($points_inorder) < 4){
+                        if (sizeof($categories) < 4){
                             echo "";
                         }
                         else{
@@ -480,7 +490,7 @@ require_once "db_connection.php";
                 <div class="row">
                     <div class="col-md category_block">
                         <input type="text" name="category_5" value="<?php
-                        if (sizeof($points_inorder) < 5){
+                        if (sizeof($categories) < 5){
                             echo "";
                         }
                         else{
