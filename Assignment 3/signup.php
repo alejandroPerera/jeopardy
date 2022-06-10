@@ -34,7 +34,15 @@ include "session_create.php";
                     // fclose($db_sql);  
                     $db->query($txt);
                     setcookie('user', $_POST['email_name'], time()+3600); //60min 
-                    setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
+
+                    if (count($_SESSION) > 0){
+                        foreach ($_SESSION as $k => $val){
+                            unset($_SESSION[$k]);
+                        }
+                        
+                        setcookie('PHPSESSID', '', time()-10, "/");
+                    }
+                    
                     header('Location: login.php');
                 }
             }
