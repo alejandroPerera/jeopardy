@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 
+<?php
+require_once "db_connection.php";
+?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +23,7 @@
     <?php
        if(isset($_SESSION['email']))   // COOKIES
        {
+           
     ?>
 
     <div class="container bg-image" style="background-image: url('styles/bg.jpg');
@@ -39,6 +44,9 @@
             <div class="col-md-3"></div>
         </div>
     </div>
+
+
+
     <div class="container">
         <div class="row">
             <div class="col custom-col">
