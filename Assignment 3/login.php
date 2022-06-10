@@ -28,9 +28,8 @@ require_once "db_connection.php";
                     }
                     else{
                         if ($user_row['password'] == $userpwd_input) {
-                            setcookie('email', $_POST['email'], time()+3600); //60min 
-                            setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
-                            
+                            // setcookie('email', $_POST['email'], time()+3600); //60min 
+                            // setcookie('pwd', password_hash($_POST['pwd'], PASSWORD_DEFAULT), time()+3600);
                             $_SESSION['email'] = $username_input; 
                             $_SESSION['first_name'] = $user_row['first_name'];
                             $_SESSION['last_name'] = $user_row['last_name'];

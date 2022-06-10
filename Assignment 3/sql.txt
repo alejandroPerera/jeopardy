@@ -1,0 +1,1 @@
+INSERT INTO `user_info` (`email`, `password`, `first_name`, `last_name`) VALUES ('wc3pka@virginia.edu', '1321132', 'wentao', 'chen');
