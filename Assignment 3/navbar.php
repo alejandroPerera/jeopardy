@@ -3,8 +3,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <?php
+  ob_start();
   if(session_status() === PHP_SESSION_NONE)
     session_start();
+  
+  require "update-handler.php"
 ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
@@ -28,36 +31,37 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
 
-                <div class="mb-3">
-                  <label for="formGroupExampleInput" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" value="<?php echo $_SESSION['first_name']?>">
-                </div>
-                <div class="mb-3">
-                  <label for="formGroupExampleInput2" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput2" value="<?php echo $_SESSION['last_name']?>">
-                </div>
-                <div class="mb-3">
-                  <label for="formGroupExampleInput2" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="formGroupExampleInput2" value="<?php echo $_SESSION['email']?>">
-                </div>
-                <div class="mb-3">
-                  <label for="formGroupExampleInput2" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="password">
+
+              <form method='GET' action='<?php $_SERVER['PHP_SELF'] ?>' novalidate>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="modal-first-name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="modal-first-name" id="modal-first-name" value="<?php echo $_SESSION['first_name']?>">
+                  </div>
+                  <div class="mb-3">
+                    <label for="modal-last-name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="modal-last-name" id="modal-last-name" value="<?php echo $_SESSION['last_name']?>">
+                  </div>
+                  <div class="mb-3">
+                    <label for="modal-email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="modal-email" id="modal-email" value="<?php echo $_SESSION['email']?>">
+                  </div>
+                  
                 </div>
 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <input type="submit" class="btn btn-primary" value="Save Changes">                
+                </div>
+              </form>
+
+
             </div>
           </div>
         </div>
 
 
-      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

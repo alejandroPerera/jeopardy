@@ -23,9 +23,6 @@ require_once "db_connection.php";
     <?php
        if(isset($_SESSION['email']))   // COOKIES
        {
-            $temp_email = $_SESSION['email'];
-            $temp = $db->query(" SELECT * FROM user_info WHERE email = '$temp_email' ");
-            echo "hi";
            
     ?>
 
