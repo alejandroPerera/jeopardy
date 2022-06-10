@@ -23,7 +23,7 @@
             </li>
             
             <?php
-              if(isset($_COOKIE['email'])) { // COOKIES
+              if(isset($_SESSION['email'])) { // COOKIES
             ?>
               <li class="nav-item">
                 <a class="nav-link" id='login-tab' href="logout.php">Sign Out</a>
