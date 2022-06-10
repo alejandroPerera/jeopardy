@@ -13,7 +13,7 @@
     <body>
         
         <?php include "navbar.php";
-            require_once "session_create.php";?>
+         ?>
         <div class="container">
             <h1>Logged Out</h1>
             <p>Redirecting to login...</p>

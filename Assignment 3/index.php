@@ -14,7 +14,6 @@
 <body>
     <?php 
     include "./navbar.php";
-    require "session_create.php";
     ?>
 
     <?php
