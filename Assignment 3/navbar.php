@@ -12,7 +12,7 @@
       
       <span class="navbar-text text-light">    
         <?php if(isset($_SESSION['first_name'])) { ?>
-          <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal"> 
+          <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"> 
             <?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?> 
           </button>
         <?php } ?>
@@ -32,19 +32,19 @@
 
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                  <input type="text" class="form-control" id="formGroupExampleInput" value="<?php echo $_SESSION['first_name']?>">
                 </div>
                 <div class="mb-3">
                   <label for="formGroupExampleInput2" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                  <input type="text" class="form-control" id="formGroupExampleInput2" value="<?php echo $_SESSION['last_name']?>">
                 </div>
                 <div class="mb-3">
                   <label for="formGroupExampleInput2" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                  <input type="email" class="form-control" id="formGroupExampleInput2" value="<?php echo $_SESSION['email']?>">
                 </div>
                 <div class="mb-3">
                   <label for="formGroupExampleInput2" class="form-label">Password</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                  <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="password">
                 </div>
 
               </div>
