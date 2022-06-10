@@ -23,9 +23,6 @@ require_once "db_connection.php";
     <?php
        if(isset($_SESSION['email']))   // COOKIES
        {
-            $temp_email = $_SESSION['email'];
-            $temp = $db->query(" SELECT * FROM user_info WHERE email = '$temp_email' ");
-            echo "hi";
            
     ?>
 
@@ -55,32 +52,23 @@ require_once "db_connection.php";
             <div class="col custom-col">
                 <h1>My Games</h1>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                    <?php 
+                        $author = $_SESSION['first_name'] . " " . $_SESSION['last_name'];
+                        $temp = $db->query(" SELECT * FROM jeopardy_games WHERE author='$author' ");
+                        while ($row = $temp->fetch()) {
+                            $title = $row['title'];
+                            $category = $row['category'];
+                            $description = $row['description'];
+                    ?>
+                    <a href="creategame2.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Title</h5>
-                            <small>Category</small>
+                            <h5 class="mb-1"><?php echo $title; setcookie('title', $title, time()+3600);?></h5>
+                            <small><?php echo $category?></small>
                         </div>
-                        <p class="mb-1">Description</p>
-                        <small>Author</small>
+                        <p class="mb-1"><?php echo $description?></p>
+                        <small><?php echo $author?></small>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">CS 4640 Final</h5>
-                            <small class="text-muted">Computer Science</small>
-                        </div>
-                        <p class="mb-1">Review game for web programming languages. Mostly focuses on content after
-                            mid-term 2.</p>
-                        <small class="text-muted">Professor Foo, Fall 2022</small>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">APMA 3100 Quiz 2</h5>
-                            <small class="text-muted">Math</small>
-                        </div>
-                        <p class="mb-1">Focuses on module 4 and 6. Only contains questions regarding discrete
-                            probabilities.</p>
-                        <small class="text-muted">Alejandro Perera, 05/30/2022</small>
-                    </a>
+                    <?php } ?>
                 </div>
 
             </div>

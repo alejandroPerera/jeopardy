@@ -19,6 +19,7 @@ require_once "db_connection.php";
     ?>
 
     <?php
+
         if(isset($_SESSION['email']))   // COOKIES
         {
             if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -42,17 +43,17 @@ require_once "db_connection.php";
     <form class = 'px-4' method="post" action="creategame1.php" novalidate>
         <div class="form-group py-2">
             <label for="exampleFormControlInput1">Title</label>
-            <input type="email" name="title" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="My Jeopardy Game">
+            <input type="text" name="title" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="My Jeopardy Game">
         </div>
 
         <div class="form-group py-2">
-            <label for="exampleFormControlInput1">Author</label>
-            <input type="email" name="author" class="form-control form-control-lg" id="exampleFormControlInput1" value="<?php echo $_SESSION['first_name'] .  " " . $_SESSION['last_name']?>">
+            <label for="exampleFormControlInput2">Author</label>
+            <input type="text" name="author" class="form-control form-control-lg" id="exampleFormControlInput2" value="<?php echo $_SESSION['first_name'] .  " " . $_SESSION['last_name']?>">
         </div>
 
         <div class="form-group py-2">
-            <label for="exampleFormControlInput1">Category</label>
-            <input type="email" name="category" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="English">
+            <label for="exampleFormControlInput3">Category</label>
+            <input type="text" name="category" class="form-control form-control-lg" id="exampleFormControlInput3" placeholder="English">
         </div>
 
         <div class="form-group py-2">
