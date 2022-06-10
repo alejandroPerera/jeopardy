@@ -1,6 +1,7 @@
 <?php
-  require_once "session_create.php"
-  ?>
+  if(session_status() === PHP_SESSION_NONE)
+    session_start();
+?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php"><img src="styles/uva.png" height="30" style="border: 5px"/></a>
@@ -22,7 +23,7 @@
             </li>
             
             <?php
-              if(isset($_COOKIE['email'])) { // COOKIES
+              if(isset($_SESSION['email'])) { // COOKIES
             ?>
               <li class="nav-item">
                 <a class="nav-link" id='login-tab' href="logout.php">Sign Out</a>
