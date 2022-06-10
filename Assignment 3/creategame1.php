@@ -2,7 +2,6 @@
 <html lang="en">
 <?php
 require_once "db_connection.php";
-require_once "session_create.php";
 ?>
 <head>
     <meta charset="utf-8">
@@ -20,7 +19,7 @@ require_once "session_create.php";
     ?>
 
     <?php
-        if(isset($_COOKIE['email']))   // COOKIES
+        if(isset($_SESSION['email']))   // COOKIES
         {
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 if(strlen($_POST['title']) > 0 && strlen($_POST['author']) > 0 && strlen($_POST['category']) > 0 && strlen($_POST['description']) > 0){ //isset, !empty 

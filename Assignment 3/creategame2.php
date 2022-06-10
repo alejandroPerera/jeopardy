@@ -2,7 +2,6 @@
 <html lang="en">
 <?php
 require_once "db_connection.php";
-require_once "session_create.php";
 ?>
 <head>
     <meta charset="utf-8">

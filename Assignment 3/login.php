@@ -2,7 +2,6 @@
 <html lang="en">
 <?php
 require_once "db_connection.php";
-require "session_create.php";
 ?>
     <head>
         <meta charset="utf-8">
@@ -15,7 +14,7 @@ require "session_create.php";
         <script src="./javascript/login_check.js"></script>
     </head>
     <body>
-        <?php
+        <?php 
             include "navbar.php";
         
             if($_SERVER['REQUEST_METHOD'] == "POST"){

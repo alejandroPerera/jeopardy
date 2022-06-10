@@ -14,11 +14,10 @@
 <body>
     <?php 
     include "./navbar.php";
-    require "session_create.php";
     ?>
 
     <?php
-       if(isset($_COOKIE['email']))   // COOKIES
+       if(isset($_SESSION['email']))   // COOKIES
        {
     ?>
 
