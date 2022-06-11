@@ -23,6 +23,11 @@ require_once "db_connection.php";
     <?php
        if(isset($_SESSION['email']))   // COOKIES
        {
+            if ($_SERVER['REQUEST_METHOD'] == "POST"){
+                
+                setcookie('title', $_POST['title'], time()+3600); //60min 
+                header('Location: creategame2.php');
+            }
            
     ?>
 
@@ -52,6 +57,7 @@ require_once "db_connection.php";
             <div class="col custom-col">
                 <h1>My Games</h1>
                 <div class="list-group">
+                    
                     <?php 
                         $author = $_SESSION['first_name'] . " " . $_SESSION['last_name'];
                         $temp = $db->query(" SELECT * FROM jeopardy_games WHERE author='$author' ");
@@ -60,19 +66,17 @@ require_once "db_connection.php";
                             $category = $row['category'];
                             $description = $row['description'];
                     ?>
-                    <a href="creategame2.php" class="list-group-item list-group-item-action" aria-current="true" onclick="<script>
-                    function reset_cookie(){
-                        
-                    }
-                    
-                    </script>">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><?php echo $title;?></h5>
-                            <small><?php echo $category?></small>
-                        </div>
-                        <p class="mb-1"><?php echo $description?></p>
-                        <small><?php echo $author?></small>
-                    </a>
+                    <form action='index.php', method="post">
+                        <input type="hidden" name="title" value="<?php echo $title?>" />
+                        <button type="submit" class="list-group-item list-group-item-action" aria-current="true" value="submit"> 
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><?php echo $title;?></h5>
+                                <small><?php echo $category?></small>
+                            </div>
+                            <p class="mb-1"><?php echo $description?></p>
+                            <small><?php echo $author?></small>
+                        </button>
+                    </form>
                     <?php } ?>
                 </div>
 
