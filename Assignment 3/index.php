@@ -24,7 +24,6 @@ require_once "db_connection.php";
        if(isset($_SESSION['email']))   // COOKIES
        {
             if ($_SERVER['REQUEST_METHOD'] == "POST"){
-                
                 setcookie('title', $_POST['title'], time()+3600); //60min 
                 header('Location: creategame2.php');
             }
