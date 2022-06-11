@@ -65,7 +65,8 @@ require_once "db_connection.php";
                             $category = $row['category'];
                             $description = $row['description'];
                     ?>
-                    <form action='index.php', method="post">
+                   
+                   <form action='index.php', method="post">
                         <input type="hidden" name="title" value="<?php echo $title?>" />
                         <button type="submit" class="list-group-item list-group-item-action" aria-current="true" value="submit"> 
                             <div class="d-flex w-100 justify-content-between">
@@ -76,6 +77,21 @@ require_once "db_connection.php";
                             <small><?php echo $author?></small>
                         </button>
                     </form>
+
+                    
+
+                    <div class='d-flex'> 
+                        <form action = 'delete-handler.php' method='post'>
+                            <input type="hidden" name="title" value="<?php echo $title?>" />
+                            <input type="hidden" name="author" value="<?php echo $author?>" />
+                            <input type="hidden" name="category" value="<?php echo $category?>" />
+                            <input type="hidden" name="description" value="<?php echo $description?>" />
+
+                            <input type='submit' class="btn btn-danger" name='<?php $question_id ?>' value='x'/>
+                        </form>
+                    </div>
+
+
                     <?php } ?>
                 </div>
 
