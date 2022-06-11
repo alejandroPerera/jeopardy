@@ -82,10 +82,10 @@ require_once "db_connection.php";
         }
         $author = $_SESSION['first_name'] . " " . $_SESSION['last_name'];
         $title = $_COOKIE['title'];
-        // echo $title;
+        echo $title;
         $points = [];
-        // echo $author;
-        // echo $title;
+        echo $author;
+        echo $title;
         $categories = [];
         $questions = [];
         $points_inorder = [];
@@ -99,9 +99,9 @@ require_once "db_connection.php";
                 array_push($categories, $row['category']);
             }
         }
-        // foreach ($categories as $item){
-        //     echo $item;
-        // }
+        foreach ($categories as $item){
+            echo $item;
+        }
         $index = 1;
         // echo min($points);
         if (sizeof($points) > 0){

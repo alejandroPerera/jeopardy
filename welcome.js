@@ -1,24 +1,61 @@
-function makeAjaxCall(str, showHint)
+function makeAjaxCall(methodType, url, data_tosend)
 {
-   if (str.length == 0)
-   {
-      // document.getElementById ("txtHint").innerHTML = "";
-      // document.getElementById ("txtYousay").innerHTML = "";
-      return;
-   }
-
+   // if (data_tosend.length == 0)
+   // {
+   //    // document.getElementById ("txtHint").innerHTML = "";
+   //    // document.getElementById ("txtYousay").innerHTML = "";
+   //    return;
+   // }
+   //create promise obj
+   var promiseObj = new Promise(function(resolve, reject){
+      xhr = GetXmlHttpObject();
+      if (xhr == null)
+      {
+         alert ("Your browser does not support XMLHTTP!");
+         return;
+      }
+      // 6. Make an asynchronous request
+      xhr.open(methodType, url, true);
+   
+      //specify the kind of data
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      //give name of data
+   
+      // 7. The request is sent to the server
+      xhr.send(data_tosend);
+      xhr.onreadystatechange = function(){
+         if (xhr.readyState === 4){
+            if (xhr.status === 200){
+               var res = xhr.responseText;
+               // callback_fn(res);
+               resolve(res);
+            }
+            else{
+               console.log("xhr failed");
+               reject(xhr.status);
+            }
+         }
+         else{
+            console.log("still not done");
+         }
+      };
+   
+   
+      // 8. Once the response is back the from the backend,
+      //    the callback function is called to update the screen
+      //    (this will be handled by the configuration above)
+   
+   
+   
+      
+   });
    // 2. Create an instance of an XMLHttpRequest object
-   xhr = GetXmlHttpObject();
-   if (xhr == null)
-   {
-      alert ("Your browser does not support XMLHTTP!");
-      return;
-   }
+   
 
 
    // 3. specify a backend handler (URL to the backend)
 
-   var url  = "welcomeMsg.php";
+   // var url  = "welcomeMsg.php";
 
 
    // 4. Assume we are going to send a GET request,
@@ -31,24 +68,7 @@ function makeAjaxCall(str, showHint)
    //    Register the callback function.
    //    Assume the callback function is named showHint(),
    //    don't forget to write code for the callback function at the bottom
-   xhr.onreadystatechange = showHint;
-
-
-   // 8. Once the response is back the from the backend,
-   //    the callback function is called to update the screen
-   //    (this will be handled by the configuration above)
-
-
-
-   // 6. Make an asynchronous request
-   xhr.open("POST", url, true);
-
-   //specify the kind of data
-   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-   //give name of data
-
-   // 7. The request is sent to the server
-   xhr.send("StringSoFar="+str);
+   return promiseObj;
 
 
 }
@@ -57,31 +77,35 @@ function makeAjaxCall(str, showHint)
 //    Call makeAjaxCall() when the event happens
 document.getElementById("fname").addEventListener("keyup", function() {
    var str_sofar = document.getElementById("fname").value;
-   makeAjaxCall(str_sofar, showHint);
+   var data = "StringSoFar=" + str_sofar;
+   makeAjaxCall("POST", "welcomeMsg.php", data).then(showHint, errorHandler);
 } );
 document.getElementById("yousay").addEventListener("keyup", function() {
-   var yousay = document.getElementById("yousay").value;
-   makeAjaxCall(yousay, showHint2);
+   var str_sofar = document.getElementById("yousay").value;
+   var data = "StringSoFar=" + str_sofar;
+   makeAjaxCall("POST", "welcomeMsg.php", data).then(showHint2, errorHandler);
 } );
 
 // The callback function processes the response from the server
-function showHint()
+function showHint(str)
 {
    // what do to with the response
-   if (xhr.readyState == 4 && xhr.status == 200) {
-      //update the DOM
-      document.getElementById('txtHint').textContent = xhr.responseText;
-   }
+   // if (xhr.readyState == 4 && xhr.status == 200) {
+   //    //update the DOM
+      document.getElementById('txtHint').textContent = str;
+   // }
 }
 
-function showHint2(){
-   if (xhr.readyState == 4 && xhr.status == 200) {
-      //update the DOM
-      document.getElementById('txtYousay').textContent = xhr.responseText;
-   }
+function showHint2(str){
+   // if (xhr.readyState == 4 && xhr.status == 200) {
+   //    //update the DOM
+      document.getElementById('txtYousay').textContent = str;
+   // }
 }
 
-
+function errorHandler(statusCode){
+   console.log("failed with status ", statusCode);
+}
 
 function GetXmlHttpObject()
 {

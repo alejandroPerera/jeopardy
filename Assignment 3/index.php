@@ -60,9 +60,14 @@ require_once "db_connection.php";
                             $category = $row['category'];
                             $description = $row['description'];
                     ?>
-                    <a href="creategame2.php" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="creategame2.php" class="list-group-item list-group-item-action" aria-current="true" onclick="<script>
+                    function reset_cookie(){
+                        
+                    }
+                    
+                    </script>">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><?php echo $title; setcookie('title', $title, time()+3600);?></h5>
+                            <h5 class="mb-1"><?php echo $title;?></h5>
                             <small><?php echo $category?></small>
                         </div>
                         <p class="mb-1"><?php echo $description?></p>
