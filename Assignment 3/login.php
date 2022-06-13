@@ -48,7 +48,7 @@ require_once "db_connection.php";
         <div class="col-md-6">
             <form method="post" action="login.php">
                 <label>Email: </label> 
-                <input type="text" id="email" name="email" class="form-control form-control-lg" required value='<?php echo $_COOKIE['user'] ?>'>
+                <input type="text" id="email" name="email" class="form-control form-control-lg" required value='<?php if(isset($_COOKIE['user'])) echo $_COOKIE['user'] ?>'>
                 <div id="user-msg" class="feedback"></div> 
                 <br>
                 <label>Password: </label> 
