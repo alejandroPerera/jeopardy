@@ -1,50 +1,75 @@
 <?php
 //server side input validation 
+require_once "db_connection.php";
 
 $first_name = $last_name = $email_name = $pwd = NULL;
 $first_name_msg = $last_name_msg = $email_name_msg = $pwd_msg = NULL;
+$valid_email = $valid_pwd = $valid_fname = $valid_lname = NULL;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+   $valid_fname = false;
+   $valid_lname = false; 
+   $valid_email = false;
+   $valid_pwd = false;
+
    if (empty($_POST['first_name']))
       $first_name_msg = "--->Please enter your first name";
-   else
-   {
+   else {
       $first_name = trim($_POST['first_name']);
-      // You may reset $name_msg and use it to determine
-      // when to display an error message
-      // $name_msg = "";
+      $first_name_msg = "";
+      $valid_fname = true;
    }
 
    if (empty($_POST['last_name']))
       $last_name_msg = "---> Please enter your last name";
-   else
-   {
+   else {
       $last_name = trim($_POST['last_name']);
-      // You may reset $email_msg and use it to determine
-      // when to display an error message
-      // $email_msg = "";
+      $last_name_msg = "";
+      $valid_lname = true;
    }
-		
-   if (empty($_POST['email_name']))
+
+      
+   if (empty($_POST['email_name'])) {
       $email_name_msg = "---> Please enter your email address";
-   else
-   {
+   } elseif (!filter_var($_POST['email_name'], FILTER_VALIDATE_EMAIL)) {
+      $email_name_msg = "---> Invalid email format";
       $email_name = trim($_POST['email_name']);
-      // You may reset $email_msg and use it to determine
-      // when to display an error message
-      // $email_msg = "";
+   } 
+   else {
+      $temp = $_POST['email_name'];
+      $statement = $db->prepare("SELECT * FROM user_info WHERE email=?");
+      $statement->execute([$temp]);
+      $user = $statement->fetch();
+
+      if($user){
+         $email_name_msg = "---> Email is already registered. Use different email or sign in.";
+      } else {
+         $email_name = trim($_POST['email_name']);
+         $email_name_msg = "";
+         $valid_email = true; 
+      }
    }
-			
-   if (empty($_POST['pwd']))
+
+   if (empty($_POST['pwd'])){    
       $pwd_msg = "---> Please enter password";
+   }  
    else
    {
       $pwd = trim($_POST['pwd']);
-      // You may reset $comment_msg and use it to determine
-      // when to display an error message
-      // $comment_msg = "";
+      $pwd_msg = "";
+      $valid_pwd = true; 
+   }
+   
+   if($valid_email && $valid_fname && $valid_lname && $valid_pwd){ //isset, !empty 
+      $txt = "INSERT INTO `user_info` (`email`, `password`, `first_name`, `last_name`) VALUES ('$email_name', '$pwd', '$first_name', '$last_name');\n";
+      //$myFile = "sql.txt";
+      // $db_sql = fopen($myFile, "w") or die("can't open file");
+      // fwrite($db_sql, $txt);
+      // fclose($db_sql);  
+      $db->query($txt);
+      setcookie('user', $email_name, time()+3600); //60min 
+      header('Location: login.php');
    }
 }
-
 ?>
