@@ -6,6 +6,7 @@ $first_name = $last_name = $email_name = $pwd = NULL;
 $first_name_msg = $last_name_msg = $email_name_msg = $pwd_msg = NULL;
 $valid_email = $valid_pwd = $valid_fname = $valid_lname = NULL;
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
    $valid_fname = false;
    $valid_lname = false; 
@@ -29,21 +30,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
    }
 
       
-   if (empty($_POST['email_name'])){
+   if (empty($_POST['email_name'])) {
       $email_name_msg = "---> Please enter your email address";
    } elseif (!filter_var($_POST['email_name'], FILTER_VALIDATE_EMAIL)) {
       $email_name_msg = "---> Invalid email format";
       $email_name = trim($_POST['email_name']);
+   } 
+   else {
+      $temp = $_POST['email_name'];
+      $statement = $db->prepare("SELECT * FROM user_info WHERE email=?");
+      $statement->execute([$temp]);
+      $user = $statement->fetch();
+
+      if($user){
+         $email_name_msg = "---> Email is already registered. Use different email or sign in.";
+      } else {
+         $email_name = trim($_POST['email_name']);
+         $email_name_msg = "";
+         $valid_email = true; 
+      }
    }
-   else{
-      $email_name = trim($_POST['email_name']);
-      $email_name_msg = "";
-      $valid_email = true; 
 
-   }
-
-
-         
    if (empty($_POST['pwd'])){    
       $pwd_msg = "---> Please enter password";
    }  
