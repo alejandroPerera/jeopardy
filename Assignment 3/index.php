@@ -127,8 +127,11 @@ require_once "db_connection.php";
         }
         else{
             
-    ?> 
-        <h1>Need to login</h1>
+    ?>
+        <div class="container bg-image" style="background-image: url('styles/rotunda.jpeg');
+        height: 100vh; background-size: cover; background-position: center; position: relative; max-width:100%">    
+            <h1 class="text-light text-center" style="padding-top: 10%">Sign in to play!</h1>
+        </div>    
     <?php   
 
         }
