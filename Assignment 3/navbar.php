@@ -15,7 +15,7 @@
       
       <span class="navbar-text text-light">    
         <?php if(isset($_SESSION['first_name'])) { ?>
-          <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"> 
+          <button id="modal-btn" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"> 
             <?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?> 
           </button>
         <?php } ?>
@@ -33,19 +33,28 @@
               </div>
 
 
-              <form method='GET' action='<?php $_SERVER['PHP_SELF'] ?>' novalidate>
+              <form method='GET' action='<?php $_SERVER['PHP_SELF'] ?>'>
                 <div class="modal-body">
                   <div class="mb-3">
                     <label for="modal-first-name" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="modal-first-name" id="modal-first-name" value="<?php echo $_SESSION['first_name']?>">
+                    <input required type="text" class="form-control" name="modal-first-name" id="modal-first-name" value="<?php echo $_SESSION['first_name']?>">
                   </div>
                   <div class="mb-3">
                     <label for="modal-last-name" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" name="modal-last-name" id="modal-last-name" value="<?php echo $_SESSION['last_name']?>">
+                    <input required type="text" class="form-control" name="modal-last-name" id="modal-last-name" value="<?php echo $_SESSION['last_name']?>">
                   </div>
                   <div class="mb-3">
                     <label for="modal-email" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="modal-email" id="modal-email" value="<?php echo $_SESSION['email']?>">
+                    <input required type="email" class="form-control" name="modal-email" id="modal-email" value="<?php echo $_SESSION['email']?>">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="modal-current-pwd" class="form-label">Current Password</label><br/>
+                    <input type="password" class="form-control" name="modal-current-pwd" id="modal-current-pwd">
+                  </div>
+                  <div class="mb-3">
+                    <label for="modal-new-pwd" class="form-label">New Password</label>
+                    <input type="password" class="form-control" name="modal-new-pwd" id="modal-new-pwd">
                   </div>
                   
                 </div>
@@ -60,6 +69,15 @@
             </div>
           </div>
         </div>
+
+        <?php
+          if(!$correct_pwd && $_SERVER['REQUEST_METHOD'] == 'GET'){
+            $message = "Current password is not correct";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            $correct_pwd = true;
+          }
+          $correct_pwd = true;
+        ?>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
