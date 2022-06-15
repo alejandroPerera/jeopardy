@@ -128,9 +128,9 @@ require_once "db_connection.php";
         else{
             
     ?>
-        <div class="container bg-image" style="background-image: url('styles/rotunda.jpeg');
+        <div class="container bg-image" style="background-color: rgba(200,100,0,.5); background-blend-mode: multiply; background-image: url('styles/rotunda.jpeg');
         height: 100vh; background-size: cover; background-position: center; position: relative; max-width:100%">    
-            <h1 class="text-light text-center" style="padding-top: 10%">Sign in to play!</h1>
+            <h1 class="text-light text-center" style="padding-top: 12%">Sign in to play!</h1>
         </div>    
     <?php   
 
