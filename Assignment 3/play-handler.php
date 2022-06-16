@@ -16,6 +16,12 @@
             header('refresh:0; url=index.php');
         }
         else{
+            // for ($i = 0; $i < 25; $i++ ){
+            //     setcookie('question'.$i+1, $results[$i]['question'], time()+3600);
+            // }
+            // for ($i = 0; $i < 5; $i++){
+            //     setcookie('points'.$i+1, $results[$i]['points'], time()+3600);
+            // }
             header('refresh:0; url=http://localhost:4200');
         }
     }
