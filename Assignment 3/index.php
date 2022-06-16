@@ -95,7 +95,7 @@ require_once "db_connection.php";
                                 </form>
                             </div>
                             <div class="col">
-                                <form action = '#'>
+                                <form action = 'http://localhost:4200'>
                                     <input type="hidden" name="title" value="<?php echo $title?>" />
                                     <input type="hidden" name="author" value="<?php echo $author?>" />
                                     <input type="hidden" name="category" value="<?php echo $category?>" />
