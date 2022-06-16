@@ -14,7 +14,7 @@ body {
 
 .custom-col {
     text-align: center;
-    padding: 5%;
+    /* padding: 5%; */
 }
 
 .vertical { 
@@ -76,4 +76,10 @@ input.point {
     background: rgb(119, 189, 233);
     border-bottom: 1px solid #fff;
     outline: none;
+}
+
+#function {
+    margin-bottom: 10px;
+    /* border-bottom: 1px solid #fff; */
+    padding-bottom: 10px;
 }
