@@ -221,3 +221,153 @@ VALUES(
     '100',
     'History'
 );
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The constellation Sagittarius represents an archer, but its eight brightest stars are often depicted as one of these, with the Milky Way as the steam rising from the spout.',
+    '500',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The first close-up images sent back to Earth from another planet were from a Russian probe on this planet in 1975.',
+    '400',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The 2 main types of optical telescopes are reflectors & these, which use lenses to magnify objects.',
+    '300',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'This Zodiac constellation has only one bright star, Hamal–Arabic for “sheep.”',
+    '200',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    ' Undetected until the 1990s, this belt is a zone of space past 30 A.U. & home to objects like dwarf planets & icy centaurs.',
+    '100',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The name of this Caribbean liqueur is from the Spanish for “aunt Mary.”',
+    '500',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Similar to a latte is a galao, a coffee drink that originated in this country.',
+    '400',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Aromatics, like garlic & fennel, are key to this Middle Eastern rice dish with a 5-letter name.',
+    '300',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Bot chien is fried dough & egg served with papaya & a popular street food in this city once known as Saigon.',
+    '200',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'White, black, & green types of this drink all come from the same plant—Camellia sinensis.',
+    '100',
+    'Food & Drink'
+);
