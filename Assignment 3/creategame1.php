@@ -71,7 +71,10 @@ require_once "db_connection.php";
         else{
             
     ?> 
-        <h1>Need to login</h1>
+        <div class="container bg-image" style="background-color: rgba(0, 0, 128, .4); background-blend-mode: multiply; background-image: url('styles/campus.jpeg');
+        height: 100vh; background-size: cover; background-position: center; position: relative; max-width:100%">    
+            <h1 class="text-light text-center" style="padding-top: 12%;">Sign in to play!</h1>
+        </div>  
     <?php   
 
         }
