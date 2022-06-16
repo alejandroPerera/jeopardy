@@ -1,1 +1,373 @@
 INSERT INTO `user_info` (`email`, `password`, `first_name`, `last_name`) VALUES ('wc3pka@virginia.edu', '1321132', 'wentao', 'chen');
+
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Koalas have adapted their diet with an extra-long gut to break down poisons in these leaves & sleep 20 hours a day due to a lack of nutrition in the leaves.',
+    '500',
+    'Animals'
+);
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The eastern gray kangaroo can cover 25 feet in a single leap, & they’re widespread in this, the country’s smallest state.',
+    '400',
+    'Animals'
+);
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'It’s the world’s largest burrowing animal & can make a destructive tunnel complex 650 feet long, so farmers don’t find it as cute as zoo-goers might.',
+    '300',
+    'Animals'
+);
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The arrival of foxes in Western Australia in the 1920s was bad news for the quokka, a type of this kangaroo relative.',
+    '200',
+    'Animals'
+);
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'This egg-laying mammal has no teeth with which to eat; its taxonomic name is Tachyglossidae, or “fast tongue.”',
+    '100',
+    'Animals'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'In 2020 Dominic Thiem completed a comeback to win this event & became the first new male Grand Slam winner in 6 years.',
+    '500',
+    'Sports'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'In 2014, 2015 & 2019 Novak Djokovic defeated this Swiss player in the Wimbledon final.',
+    '400',
+    'Sports'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'This 5-letter word means an extended exchange of strokes before a point in tennis.',
+    '300',
+    'Sports'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'At the 2012 French Open, this Russian completed her career slam.',
+    '200',
+    'Sports'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Tennis teams representing different nations vie for this trophy named for its donor.',
+    '100',
+    'Sports'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The Sixth Amendment grants the right “to a speedy and public” this.',
+    '500',
+    'History'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Patents & copyrights are authorized “to promote the progress of science and useful” these.',
+    '400',
+    'History'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    '“The President shall be” this “of the Army and Navy of the United States”.',
+    '300',
+    'History'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    '“No Person shall be” one of these “who shall not have attained to the Age of thirty years.”',
+    '200',
+    'History'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'No government official may accept a present or this type of compensation from a foreign state without Congress’ OK.',
+    '100',
+    'History'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The constellation Sagittarius represents an archer, but its eight brightest stars are often depicted as one of these, with the Milky Way as the steam rising from the spout.',
+    '500',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The first close-up images sent back to Earth from another planet were from a Russian probe on this planet in 1975.',
+    '400',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The 2 main types of optical telescopes are reflectors & these, which use lenses to magnify objects.',
+    '300',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'This Zodiac constellation has only one bright star, Hamal–Arabic for “sheep.”',
+    '200',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    ' Undetected until the 1990s, this belt is a zone of space past 30 A.U. & home to objects like dwarf planets & icy centaurs.',
+    '100',
+    'Astronomy'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'The name of this Caribbean liqueur is from the Spanish for “aunt Mary.”',
+    '500',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Similar to a latte is a galao, a coffee drink that originated in this country.',
+    '400',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Aromatics, like garlic & fennel, are key to this Middle Eastern rice dish with a 5-letter name.',
+    '300',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'Bot chien is fried dough & egg served with papaya & a popular street food in this city once known as Saigon.',
+    '200',
+    'Food & Drink'
+);
+
+INSERT INTO `jeopardy_game_questions`(
+    `title`,
+    `author`,
+    `question`,
+    `points`,
+    `category`
+)
+VALUES(
+    'Classis Trivia',
+    'wentao chen',
+    'White, black, & green types of this drink all come from the same plant—Camellia sinensis.',
+    '100',
+    'Food & Drink'
+);
