@@ -12,76 +12,65 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jeopardy</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
-    <link href="/Applications/XAMPP/xamppfiles/htdocs/GitHub/cs4640/Assignment 3/styles/main.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeopardy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+  <link href="/Applications/XAMPP/xamppfiles/htdocs/GitHub/cs4640/Assignment 3/styles/main.css" rel="stylesheet"
+    type="text/css">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="http://localhost/github/cs4640/Assignment%203/index.php"><img src="../assets/images/uva.png" height="30" style="border: 5px" /></a>
+      <a class="navbar-brand" href="http://localhost/github/cs4640/Assignment%203/index.php"><img
+          src="../assets/images/uva.png" height="30" style="border: 5px" /></a>
 
       <span class="navbar-text text-light">
         <button id="modal-btn" type="button" class="btn btn-outline-primary" data-toggle="modal"
-          data-target="#exampleModal"> Alex
+          data-target="#exampleModal"> Hello There!
         </button>
       </span>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-
-
-            <form method='GET' action='#'>
-              <div class="modal-body">
-                <div class="mb-3">
-                  <label for="modal-first-name" class="form-label">First Name</label>
-                  <input required type="text" class="form-control" name="modal-first-name" id="modal-first-name"
-                    value="">
-                </div>
-                <div class="mb-3">
-                  <label for="modal-last-name" class="form-label">Last Name</label>
-                  <input required type="text" class="form-control" name="modal-last-name" id="modal-last-name" value="">
-                </div>
-                <div class="mb-3">
-                  <label for="modal-email" class="form-label">Email</label>
-                  <input required type="email" class="form-control" name="modal-email" id="modal-email" value="">
-                </div>
-
-                <div class="mb-3">
-                  <label for="modal-current-pwd" class="form-label">Current Password</label><br />
-                  <input type="password" class="form-control" name="modal-current-pwd" id="modal-current-pwd">
-                </div>
-                <div class="mb-3">
-                  <label for="modal-new-pwd" class="form-label">New Password</label>
-                  <input type="password" class="form-control" name="modal-new-pwd" id="modal-new-pwd">
-                </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-primary" value="Save Changes">
-              </div>
-            </form>
-
-
-          </div>
+      <form class="row g-3 px-4" method="post" action="#" novalidate>
+        <div class="col-6">
+          <label class="form-label">First Name</label>
+          <span class="msg text-danger"></span>
+          <input type="text" name="first_name" class="form-control form-control-lg" id="first_name" placeholder="John"
+            required="" value="">
         </div>
-      </div>
+        <div class="col-6">
+          <label class="form-label">Last Name</label>
+          <span class="msg text-danger"></span>
+          <input type="text" name="last_name" class="form-control form-control-lg" id="last_name" placeholder="Smith"
+            required="" value="">
+        </div>
+        <div class="col-6">
+          <label class="form-label">Email</label>
+          <span class="msg text-danger"></span>
+          <input type="email" name="email_name" class="form-control form-control-lg" id="email_name"
+            placeholder="email@address.com" required="" value="">
+        </div>
+        <div class="col-6">
+          <label class="form-label">Password</label>
+          <span class="msg text-danger"></span>
+          <input type="password" name="pwd" class="form-control form-control-lg" id="pwd" placeholder="password"
+            required="" value="">
+        </div>
+        <div class="d-grid gap-2 py-2">
+          <input type="submit" class="btn btn-primary btn-lg" value="Sign up">
+        </div>
+      </form>
+
+      <script>
+        (function () {
+          var highlight = document.getElementById('login-tab');   //anonymous function
+          highlight.classList.add('active')
+        })();
+      </script>
+
 
 
 
@@ -92,11 +81,13 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="nav ms-auto nav-pills nav-fill">
           <li class="nav-item">
-            <a class="nav-link" id="homepage-tab" href="http://localhost/github/cs4640/Assignment%203/index.php">Home</a>
+            <a class="nav-link" id="homepage-tab"
+              href="http://localhost/github/cs4640/Assignment%203/index.php">Home</a>
 
           </li>
           <li class="nav-item">
-            <a class="nav-link" id='create-tab' href="http://localhost/github/cs4640/Assignment%203/creategame1.php">Create</a>
+            <a class="nav-link" id='create-tab'
+              href="http://localhost/github/cs4640/Assignment%203/creategame1.php">Create</a>
           </li>
 
 
@@ -105,15 +96,16 @@
               </li> -->
 
           <li class="nav-item">
-            <a class="nav-link" id='login-tab' href="http://localhost/github/cs4640/Assignment%203/login.php">Sign In</a>
+            <a class="nav-link" id='login-tab' href="http://localhost/github/cs4640/Assignment%203/login.php">Sign
+              In</a>
           </li>
 
         </ul>
-      </div> 
+      </div>
     </div>
   </nav>
 
-  <h1>test</h1>
+
 </body>
 
 </html>
