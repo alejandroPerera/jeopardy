@@ -67,7 +67,7 @@ INSERT INTO `jeopardy_game_questions`(
 VALUES(
     'Classis Trivia',
     'wentao chen',
-    'This egg-laying mammal has no teeth with which to eat; its taxonomic name is Tachyglossidae, or “fast tongue.”',
+    'This egg-laying mammal has no teeth with which to eat\; its taxonomic name is Tachyglossidae, or “fast tongue.”',
     '100',
     'Animals'
 );

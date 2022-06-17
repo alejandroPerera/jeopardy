@@ -27,7 +27,7 @@ export class AppComponent {
     this.confirm_msg = "Thank you, " + formdata.name + ".";
     this.confirm_msg += "You ordered " + formdata.drink_option + ".";
     if (formdata.sendmsg)
-      this.confirm_msg += " We will text you once it's done.";
+      this.confirm_msg += " We will text you once it's done."
   }
 
   darkMode = false;
