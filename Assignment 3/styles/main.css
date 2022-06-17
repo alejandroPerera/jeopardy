@@ -83,3 +83,15 @@ input.point {
     /* border-bottom: 1px solid #fff; */
     padding-bottom: 10px;
 }
+
+.game_block {
+    border: none;
+    background: rgb(125, 206, 195);
+    border-bottom: 1px solid #fff;
+    outline: none;
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 13vh; 
+}

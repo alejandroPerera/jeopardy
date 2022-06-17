@@ -19,9 +19,9 @@
         <div class="container">
             <div class="container">
                 <div class="row">
-                    <div class="col-md question_block">
-                        <button><?php echo $_COOKIE['question1']?></button>
-                        <input type="submit" name="question_1" value="" placeholder="category 1 100 points"  />
+                    <div class="col-md game_block">
+                        <button type="submit" name="question_1">category 1 <br>100 points</button>
+                        <!-- <input type="submit" name="question_1" value="" placeholder="category 1 100 points"  /> -->
                     </div>
                     <div class="col-md question_block">
                         <input type="text" name="question_2" value="" placeholder="category 1 200 points" />

@@ -8,7 +8,7 @@
         $category = $_POST['category'];
         $description = $_POST['description'];
 
-        $result = $db->query(" SELECT * FROM jeopardy_game_questions WHERE title= '$title' AND author= '$author' ;");
+        $result = $db->query(" SELECT * FROM jeopardy_game_questions WHERE title= '$title' AND author= '$author' ORDER BY `jeopardy_game_questions`.`category` ASC , `jeopardy_game_questions`.`points` ASC;");
         $results = $result->fetchAll();
         if (sizeof($results) < 25){
             // echo $results[0]['question'];
@@ -18,7 +18,7 @@
         }
         else{
             for ($i = 0; $i < 25; $i++ ){
-                setcookie('question'.$i+1, $results[$i]['question'], time()+3600);
+                setcookie('question'.$i+$tmp+1, $results[$i]['question'], time()+3600);
             }
             for ($i = 0; $i < 5; $i++){
                 setcookie('points'.$i+1, $results[$i]['points'], time()+3600);
