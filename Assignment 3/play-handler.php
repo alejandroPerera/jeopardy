@@ -23,6 +23,9 @@
             for ($i = 0; $i < 5; $i++){
                 setcookie('points'.$i+1, $results[$i]['points'], time()+3600);
             }
+            for ($i = 0; $i < 5; $i++){
+                setcookie('category'.$i+1, $results[$i*5]['category'], time()+3600);
+            }
             header("refresh:0; url=playgame.php");
         }
     }

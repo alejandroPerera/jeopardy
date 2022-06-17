@@ -23,10 +23,7 @@ require_once "db_connection.php";
     <?php
        if(isset($_SESSION['email']))   // COOKIES
        {
-            if ($_SERVER['REQUEST_METHOD'] == "POST"){
-                setcookie('title', $_POST['title'], time()+3600); //60min 
-                header('Location: creategame2.php');
-            }
+            
            
     ?>
 
@@ -35,13 +32,13 @@ require_once "db_connection.php";
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <form class="d-flex flex-column" role="search" style="text-align:center; padding: 11vh 0;">
+                <form class="d-flex flex-column" role="search" style="text-align:center; padding: 11vh 0;" method='post' action='search.php'>
                     <h1 class="p-3">
-                        <input class="form-control" type="search" placeholder="Search for Jeopardy Games"
+                        <input class="form-control" type="search" name='search-content' placeholder="Search for Jeopardy Games"
                             aria-label="Search" autofocus >
                     </h1>
                     <p class="p-3" style="text-align:center;">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Search</a>
+                        <input class="btn btn-primary btn-lg" type="submit" value='Search'>
                     </p>
                 </form>
             </div>
@@ -53,10 +50,10 @@ require_once "db_connection.php";
 
     <div class="container">
         <div class="row">
+            <?php ?>
             <div class="col custom-col">
                 <h1>My Games</h1>
                 <div class="list-group">
-                    
                     <?php 
                         $author = $_SESSION['first_name'] . " " . $_SESSION['last_name'];
                         $temp = $db->query(" SELECT * FROM jeopardy_games WHERE author='$author' ");
@@ -86,7 +83,7 @@ require_once "db_connection.php";
                                 </form>
                             </div>
                             <div class="col">
-                                <form action = 'index.php' method='post'>
+                                <form action = 'edit-handler.php' method='post'>
                                     <input type="hidden" name="title" value="<?php echo $title?>" />
                                     <input type="hidden" name="author" value="<?php echo $author?>" />
                                     <input type="hidden" name="category" value="<?php echo $category?>" />
@@ -122,7 +119,6 @@ require_once "db_connection.php";
 
                     <?php } ?>
                 </div>
-
             </div>
 
             <!-- <div class="col vertical">
