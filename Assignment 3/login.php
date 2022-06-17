@@ -57,7 +57,7 @@ require_once "db_connection.php";
                 <br>
                 <div class='d-grid gap-2'>
                     <input type="submit" class="btn btn-dark btn-lg" value="Sign in">   <!-- use input type="submit" with the required attribute -->
-                    <p>Don't have an account? <a href="signup.php">Sign up.</a></p> 
+                    <p>Don't have an account? <a href="http://localhost:4200/">Sign up.</a></p> 
                 </div>
             </form>
         </div>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeopardy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+</head>
+
+<body [ngStyle]="{'background-color': darkMode ? 'AliceBlue' : (!darkMode ? 'lavender' : null) }">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="http://localhost/github/cs4640/Assignment%203/index.php"><img
+          src="../assets/images/uva.png" height="30" style="border: 5px" /></a>
+
+
+      <div *ngIf="!show">
+        <span class="navbar-text text-light">
+          {{ message }}
+        </span>
+      </div>
+
+      <div *ngIf="show">
+        <!-- ngclass -->
+        <span [ngClass] = "'navbar-text text-light'">  
+          Hello {{ userModel.firstName }}
+        </span>
+      </div>
+
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
+        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="nav ms-auto nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link" id="homepage-tab"
+              href="http://localhost/github/cs4640/Assignment%203/index.php">Home</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id='create-tab'
+              href="http://localhost/github/cs4640/Assignment%203/creategame1.php">Create</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" id='login-tab'
+              href="http://localhost/github/cs4640/Assignment%203/login.php">Sign
+              In</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <form #userForm="ngForm">
+      <div class="mb-2">
+        <label>First Name: </label>
+        <input required #firstName="ngModel" [class.is-invalid]="(firstName.invalid && firstName.touched)"
+          [(ngModel)]="userModel.firstName" type="text" class="form-control" name="firstName">
+        <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">
+          First name is required
+        </small>
+      </div>
+
+      <div class="mb-2">
+        <label>Last Name: </label>
+        <input required #lastName="ngModel" [class.is-invalid]="(lastName.invalid && lastName.touched)"
+          [(ngModel)]="userModel.lastName" type="text" class="form-control" name="lastName">
+        <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">
+          Last name is required
+        </small>
+      </div>
+
+      <div class="mb-2">
+        <label>Email: </label>
+        <input required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" #email="ngModel"
+          [class.is-invalid]="(email.invalid && email.touched)" [(ngModel)]="userModel.email" type="email"
+          class="form-control" name="email">
+        <small class="text-danger" [class.d-none]="email.valid || email.untouched">
+          Email is required and must be properly formatted
+        </small>
+      </div>
+
+      <div class="mb-2">
+        <label>Password: </label>
+        <input required minlength="8" #password="ngModel" [class.is-invalid]="(password.invalid && password.touched)"
+          [(ngModel)]="userModel.password" type="password" class="form-control" name="password">
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">
+          Password must be at least 8 characters
+        </small>
+      </div>
+
+      <!------------------------------------------>
+
+      <button [disabled]="!userForm.form.valid" (click)="onSubmit(userForm.value)" class="btn btn-primary">Sign up</button>
+      <button (click)="changeDarkMode()" class="btn btn-secondary">Change Theme</button>
+    </form>
+
+
+
+    <hr />
+   <h1>Result</h1>
+    <p>{{ msg }}</p>
+    
+    <hr /> 
+    <h1>Log</h1>
+    <div *ngFor="let user of userList">                                     
+        <p>{{ user.firstName }}, {{ user.lastName }}, {{ user.email }}</p>
+    </div>
+
+ 
+
+  </div>
+
+</body>
+
+</html>
