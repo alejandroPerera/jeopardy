@@ -13,8 +13,8 @@
         if (sizeof($results) < 25){
             // echo $results[0]['question'];
             echo("<script type='text/javascript'>alert ('this game is unfinished yet');</script>");
-            header("refresh:0; url=playgame.php");
-            // header('refresh:0; url=index.php');
+            // header("refresh:0; url=playgame.php");
+            header('refresh:0; url=index.php');
         }
         else{
             for ($i = 0; $i < 25; $i++ ){
