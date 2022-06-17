@@ -31,7 +31,7 @@ if($user){
 } else {
     $txt = "INSERT INTO `user_info` (`email`, `password`, `first_name`, `last_name`) VALUES ('$email', '$pwd', '$first_name', '$last_name');\n";    
     $db->query($txt);   
-    $response = ['Successfully signed up. Welcome!'];
+    $response = ['Successfully signed up! Click on the sign in tab to login.'];
 }
 
 echo json_encode([$response])

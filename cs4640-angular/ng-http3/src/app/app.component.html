@@ -20,15 +20,25 @@
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
 </head>
 
-<body [class.dark]="darkMode">
+<body [ngStyle]="{'background-color': darkMode ? 'AliceBlue' : (!darkMode ? 'lavender' : null) }">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="http://localhost/github/cs4640/Assignment%203/index.php"><img
           src="../assets/images/uva.png" height="30" style="border: 5px" /></a>
 
-      <span class="navbar-text text-light">
-        {{ message }}
-      </span>
+
+      <div *ngIf="!show">
+        <span class="navbar-text text-light">
+          {{ message }}
+        </span>
+      </div>
+
+      <div *ngIf="show">
+        <!-- ngclass -->
+        <span [ngClass] = "'navbar-text text-light'">  
+          Hello {{ userModel.firstName }}
+        </span>
+      </div>
 
 
 
@@ -50,7 +60,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link active" id='login-tab'
+            <a class="nav-link" id='login-tab'
               href="http://localhost/github/cs4640/Assignment%203/login.php">Sign
               In</a>
           </li>
@@ -62,7 +72,7 @@
 
 
   <div class="container">
-    <form #userForm="ngForm" (ngSubmit)="confirmUser(userForm.value)">
+    <form #userForm="ngForm">
       <div class="mb-2">
         <label>First Name: </label>
         <input required #firstName="ngModel" [class.is-invalid]="(firstName.invalid && firstName.touched)"
@@ -103,43 +113,22 @@
       <!------------------------------------------>
 
       <button [disabled]="!userForm.form.valid" (click)="onSubmit(userForm.value)" class="btn btn-primary">Sign up</button>
-      <!-- <button (click)="changeDarkMode()" class="btn btn-secondary">Click to change mode</button> -->
+      <button (click)="changeDarkMode()" class="btn btn-secondary">Change Theme</button>
     </form>
 
 
 
     <hr />
-    <h3>Response from php</h3>
+   <h1>Result</h1>
     <p>{{ msg }}</p>
-    <!-- <ul *ngFor="let item of responsedata">
-        <li>{{ item.name }}, {{ item.email }}, {{ item.phone }}, {{ item.drink_option }}, 
-          {{ item.tempPreference }}, {{ item.sendmsg }}, {{ item.user_date }}</li>
-      </ul> -->
-
-    <div *ngFor="let user of responsedata">
-      <div *ngFor="let item of user">
-        <p>{{ item.name }}, {{ item.email }}, {{ item.phone }}, {{ item.drink }},
-          {{ item.tempPreference }}, {{ item.sendText }}, {{ item.user_date }}</p>
-      </div>
+    
+    <hr /> 
+    <h1>Log</h1>
+    <div *ngFor="let user of userList">                                     
+        <p>{{ user.firstName }}, {{ user.lastName }}, {{ user.email }}</p>
     </div>
 
-    <hr />
-    <h3>user Confirmation</h3>
-    <i>
-      <font color="green">{{ confirm_msg }}</font>
-    </i> <br>
-    Data submitted:
-    <i>
-      <font color="green">Display the submitted user</font>
-    </i>
-    <hr />
-    <b>userList</b> {{ userList | json}}
-
-    <hr />
-    <b>from above form: </b>{{ userForm.value | json}}
-    <p>{{ userForm.value.name }}</p>
-    <hr />
-    <b>from model: </b>{{ userModel | json }}
+ 
 
   </div>
 
