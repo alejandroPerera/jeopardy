@@ -1,0 +1,79 @@
+body { 
+    background-color: lavender;
+    padding:0; 
+    margin:0;
+}
+
+.custom-nav { 
+    background-color: rgb(12, 14, 25);
+    font-size: xx-large;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    padding-bottom: .5%;
+}
+
+.custom-col {
+    text-align: center;
+    padding: 5%;
+}
+
+.vertical { 
+    border-left: 5px solid  rgb(12, 14, 25);
+    height: 100%;
+    position: absolute;
+    left: 50%;
+}
+
+.question_block {
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 13vh; 
+}
+
+.point_block {
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 6vh; 
+}
+
+.category_block {
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 6vh; 
+}
+
+.create_game {
+    width: 100% ;
+    height: 8vh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 6vh;
+}
+
+.big-label {
+    text-align: center;
+}
+
+form {
+    padding-top: 2vh;
+}
+
+input {
+    border: none;
+    background: rgb(125, 206, 195);
+    border-bottom: 1px solid #fff;
+    outline: none;
+}
+
+input.point {
+    border: none;
+    background: rgb(119, 189, 233);
+    border-bottom: 1px solid #fff;
+    outline: none;
+}
