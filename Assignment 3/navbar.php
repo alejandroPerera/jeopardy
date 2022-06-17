@@ -18,6 +18,8 @@
           <button id="modal-btn" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"> 
             <?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?> 
           </button>
+        <?php } else { ?>
+          Hello Stranger! 
         <?php } ?>
       </span> 
 
