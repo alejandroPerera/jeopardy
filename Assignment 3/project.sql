@@ -108,6 +108,14 @@ INSERT INTO `user_info` (`email`, `password`, `first_name`, `last_name`) VALUES
 ('wc3pka@virginia.edu', '1321132', 'wentao', 'chen');
 COMMIT;
 
+CREATE TABLE jeopardy_games (
+	`title` varchar(255),
+	`author` varchar(255),
+  `category` varchar(255),
+	`description` varchar(255)
+);
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
