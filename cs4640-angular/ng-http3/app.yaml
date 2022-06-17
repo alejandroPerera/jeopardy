@@ -1,0 +1,15 @@
+
+runtime: nodejs16
+
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "ng-app-bucket-cs4640"
+
+handlers:
+- url: /
+  static_files: dist/ng-http3/index.html
+  upload: dist/ng-http3/index.html
+
+- url: /
+  static_dir: dist/ng-http3

@@ -81,6 +81,9 @@ require_once "db_connection.php";
                     
                         <div class="row">
                             <div class="col">
+                            <?php
+                                if ($author == $_SESSION['first_name'] . " " . $_SESSION['last_name']){
+                            ?>
                                 <form action = 'delete-handler.php' method='post'>
                                     <input type="hidden" name="title" value="<?php echo $title?>" />
                                     <input type="hidden" name="author" value="<?php echo $author?>" />
@@ -88,6 +91,10 @@ require_once "db_connection.php";
                                     <input type="hidden" name="description" value="<?php echo $description?>" />
                                     <input type='submit' class="btn btn-danger" name='<?php $question_id ?>' value='x'/>
                                 </form>
+                            
+                            <?php
+                                }
+                            ?>
                             </div>
                             <div class="col">
                                 <form action = 'edit-handler.php' method='post'>

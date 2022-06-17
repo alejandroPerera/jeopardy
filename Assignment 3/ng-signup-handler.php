@@ -33,7 +33,6 @@ if($user){
     $db->query($txt);   
     $response = ['Successfully signed up! Click on the sign in tab to login.'];
 }
-
-echo json_encode([$response])
+echo json_encode([$response]);
 
 ?>

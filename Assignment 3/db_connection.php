@@ -2,10 +2,10 @@
 
 /** F21, PHP (on local XAMPP) connect to MySQL (on local XAMPP) **/
 $username = 'root';
-$password = '';
-// $password = 'ms^?1FE`zs6bU`eL';
-$host = 'localhost:3306';
-// $host = '35.221.22.138';
+// $password = '';
+$password = 'ms^?1FE`zs6bU`eL';
+// $host = 'localhost:3306';
+$host = '35.221.22.138';
 $dbname = 'project';
 $dsn = "mysql:host=$host;dbname=$dbname";  
 ////////////////////////////////////////////
