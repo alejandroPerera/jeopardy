@@ -1,4 +1,4 @@
 www.cs4640jeopardygame.com
 
-wentao chen(wc3pka) login page, creategame1, creategame2, index page, and css styling
-Alejandro Perera(ap4utx) homepage, update profile, and css styling
+wentao chen(wc3pka) playtime, index page 4 button, and css styling, game validation
+Alejandro Perera(ap4utx) angular component, favorite functionality,
