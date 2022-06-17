@@ -75,6 +75,7 @@ require_once "db_connection.php";
                         <div class="row">
                             <div class="col">
                                 <form action = 'delete-handler.php' method='post'>
+                                    <input type="hidden" name="type" value="my games"/>
                                     <input type="hidden" name="title" value="<?php echo $title?>" />
                                     <input type="hidden" name="author" value="<?php echo $author?>" />
                                     <input type="hidden" name="category" value="<?php echo $category?>" />
@@ -84,6 +85,7 @@ require_once "db_connection.php";
                             </div>
                             <div class="col">
                                 <form action = 'edit-handler.php' method='post'>
+                                    <input type="hidden" name="type" value="my games"/>
                                     <input type="hidden" name="title" value="<?php echo $title?>" />
                                     <input type="hidden" name="author" value="<?php echo $author?>" />
                                     <input type="hidden" name="category" value="<?php echo $category?>" />
@@ -93,6 +95,7 @@ require_once "db_connection.php";
                             </div>
                             <div class="col">
                                 <form action = 'play-handler.php' method='post'>
+                                    <input type="hidden" name="type" value="my games"/>
                                     <input type="hidden" name="title" value="<?php echo $title?>" />
                                     <input type="hidden" name="author" value="<?php echo $author?>" />
                                     <input type="hidden" name="category" value="<?php echo $category?>" />
@@ -101,12 +104,13 @@ require_once "db_connection.php";
                                 </form>
                             </div>
                             <div class="col">
-                                <form action = 'index.php' method='post'>
+                                <form action = 'favorite-handler.php' method='post'>
+                                    <input type="hidden" name="favorite" value="hello world"/>
                                     <input type="hidden" name="title" value="<?php echo $title?>" />
                                     <input type="hidden" name="author" value="<?php echo $author?>" />
                                     <input type="hidden" name="category" value="<?php echo $category?>" />
                                     <input type="hidden" name="description" value="<?php echo $description?>" />
-                                    <button type="button" class="btn btn-warning">
+                                    <button type="submit" class="btn btn-warning">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
                                         <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"></path>
                                     </svg>
@@ -126,14 +130,65 @@ require_once "db_connection.php";
             <div class="col custom-col">
                 <h1>Favorites</h1>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Attack on Titan Jeopardy</h5>
-                            <small>Anime</small>
+                    <?php 
+                        $author = $_SESSION['first_name'] . " " . $_SESSION['last_name'];
+                        $temp = $db->query(" SELECT * FROM favorites WHERE author='$author' ");
+                        while ($row = $temp->fetch()) {
+                            $title = $row['title'];
+                            $category = $row['category'];
+                            $description = $row['description'];
+                    ?>
+                    <div class="container" id="function">
+                        <label type="text" class="list-group-item list-group-item-action" aria-current="true" > 
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><?php echo $title;?></h5>
+                                <small><?php echo $category?></small>
+                            </div>
+                            <p class="mb-1"><?php echo $description?></p>
+                            <small><?php echo $author?></small>
+                        </label>
+                    
+                        <div class="row">
+                            <div class="col">
+                                <form action = 'edit-handler.php' method='post'>
+                                    <input type="hidden" name="type" value="favorite"/>
+                                    <input type="hidden" name="title" value="<?php echo $title?>" />
+                                    <input type="hidden" name="author" value="<?php echo $author?>" />
+                                    <input type="hidden" name="category" value="<?php echo $category?>" />
+                                    <input type="hidden" name="description" value="<?php echo $description?>" />
+                                    <input type='submit' class="btn btn-primary" name='<?php $question_id ?>' value='edit'/>
+                                </form>
+                            </div>
+                            <div class="col">
+                                <form action = 'play-handler.php' method='post'>
+                                    <input type="hidden" name="type" value="favorite"/>
+                                    <input type="hidden" name="title" value="<?php echo $title?>" />
+                                    <input type="hidden" name="author" value="<?php echo $author?>" />
+                                    <input type="hidden" name="category" value="<?php echo $category?>" />
+                                    <input type="hidden" name="description" value="<?php echo $description?>" />
+                                    <input type='submit' class="btn btn-success" name='<?php $question_id ?>' value='play'/>
+                                </form>
+                            </div>
+                            <div class="col">
+                                <form action = 'favorite-handler.php' method='post'>
+                                    <input type="hidden" name="favorite"/>
+                                    <input type="hidden" name="title" value="<?php echo $title?>" />
+                                    <input type="hidden" name="author" value="<?php echo $author?>" />
+                                    <input type="hidden" name="category" value="<?php echo $category?>" />
+                                    <input type="hidden" name="description" value="<?php echo $description?>" />
+                                    <button type="submit" class="btn btn-warning">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"></path>
+                                    </svg>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-                        <p class="mb-1">Questions are anime only, no spoilers!!!</p>
-                        <small>Anonymous</small>
-                    </a>
+                    </div>
+
+                    <?php } ?>
+
+
                 </div>
             </div>
         </div>
