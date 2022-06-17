@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
 </head>
 
-<body [ngStyle]="{'background-color': darkMode ? 'AliceBlue' : (!darkMode ? 'lavender' : null) }">
+<body [ngStyle]="{'background-color': darkMode ? 'Ivory' : (!darkMode ? 'lavender' : null) }">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="http://localhost/github/cs4640/Assignment%203/index.php"><img
@@ -112,8 +112,11 @@
 
       <!------------------------------------------>
 
-      <button [disabled]="!userForm.form.valid" (click)="onSubmit(userForm.value)" class="btn btn-primary">Sign up</button>
-      <button (click)="changeDarkMode()" class="btn btn-secondary">Change Theme</button>
+    
+
+      
+        <button [disabled]="!userForm.form.valid" (click)="onSubmit(userForm.value)" class="btn btn-primary" style="margin-right: 1%;">Sign up</button>
+        <button (click)="changeDarkMode()" class="btn btn-secondary">Change Theme</button>
     </form>
 
 
