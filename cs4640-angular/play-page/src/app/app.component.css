@@ -98,9 +98,9 @@ input.point {
     transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 
-.question_block input:hover {
+/* .question_block input:hover {
     background-color: #FFCCCC;
     width: 1261px;
     height: 625px;
     transform: rotate(180deg);
-}
+} */
