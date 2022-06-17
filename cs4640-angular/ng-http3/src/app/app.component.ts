@@ -30,7 +30,7 @@ export class AppComponent {
     let params = JSON.stringify(form); //single user 
 
     //this.http.post<any>("http://localhost/github/cs4640/ng-php/ng-http-post.php" , params)
-    this.http.post<any>("http://localhost/github/cs4640/Assignment%203/ng-signup-handler.php" , params)
+    this.http.post<any>("https://www.cs4640jeopardygame.com/ng-signup-handler.php" , params)
       .subscribe({
         next: (data) => {
           //display the response data on screen
