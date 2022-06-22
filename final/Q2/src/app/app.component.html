@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>Temperature Comparation</title>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+    <style>
+      .error {
+         color: red;
+         font-style: italic;
+         font-size: 0.8em;
+         padding-left: 16px;
+      }
+      .row {
+          padding-bottom: 10px;
+      }
+      #compare {
+          width: 100%;
+          text-align: center;
+      }
+      .error_message {  color: crimson; font-style:italic; padding:10px; }
+    </style>
+  </head>
+<body>
+  
+  <div class="container">
+    <h1>{{ title }}</h1>
+      <form #orderForm="ngForm">          
+        <div class="row">
+            <div class="col">
+                <h2>First Week's Temperature (in Celsius)</h2>
+            </div>
+            <div class="col">
+                <h2>Second Week's Temperature (in Celsius)</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <label>Monday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #mon1="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((mon1.invalid || mon1 == null) && mon1.touched)"
+                [(ngModel)]="orderModel.mon1"
+                type="text" class="form-control" name="mon1" id="mon1">
+                <!-- <p>{{ isNumber(mon1) }}</p> -->
+                <small class="text-danger" id='mon1_msg' [class.d-none]="mon1.valid || mon1.untouched">
+                  Please enter a valide temperature number
+                </small>  
+            </div>
+            <div class="col-2">
+                <label>Monday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #mon2="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((mon2.invalid || mon2 == null) && mon2.touched)"
+                [(ngModel)]="orderModel.mon2"
+                type="text" class="form-control" name="mon2">
+                <small class="text-danger" [class.d-none]="mon2.valid || mon2.untouched">
+                  Please enter a valide temperature number
+                </small>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <label>Tuesday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #tue1="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((tue1.invalid || tue1 == null) && tue1.touched)"
+                [(ngModel)]="orderModel.tue1"
+                type="text" class="form-control" name="tue1">
+                <small class="text-danger" [class.d-none]="tue1.valid || tue1.untouched">
+                  Please enter a valide temperature number
+                </small>  
+            </div>
+            <div class="col-2">
+                <label>Tuesday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #tue2="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((tue2.invalid || tue2 == null) && tue2.touched)"
+                [(ngModel)]="orderModel.tue2"
+                type="text" class="form-control" name="tue2">
+                <small class="text-danger" [class.d-none]="tue2.valid || tue2.untouched">
+                  Please enter a valide temperature number
+                </small>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <label>Wednesday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #wed1="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((wed1.invalid || wed1 == null) && wed1.touched)"
+                [(ngModel)]="orderModel.wed1"
+                type="text" class="form-control" name="wed1">
+                <small class="text-danger" [class.d-none]="wed1.valid || wed1.untouched">
+                  Please enter a valide temperature number
+                </small>  
+            </div>
+            <div class="col-2">
+                <label>Wednesday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #wed2="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((wed2.invalid || wed2 == null) && wed2.touched)"
+                [(ngModel)]="orderModel.wed2"
+                type="text" class="form-control" name="wed2">
+                <small class="text-danger" [class.d-none]="wed2.valid || wed2.untouched">
+                  Please enter a valide temperature number
+                </small>   
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <label>Thursday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #thu1="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((thu1.invalid || thu1 == null) && thu1.touched)"
+                [(ngModel)]="orderModel.thu1"
+                type="text" class="form-control" name="thu1">
+                <small class="text-danger" [class.d-none]="thu1.valid || thu1.untouched">
+                  Please enter a valide temperature number
+                </small>  
+            </div>
+            <div class="col-2">
+                <label>Thursday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #thu2="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((thu2.invalid || thu2 == null) && thu2.touched)"
+                [(ngModel)]="orderModel.thu2"
+                type="text" class="form-control" name="thu2">
+                <small class="text-danger" [class.d-none]="thu2.valid || thu2.untouched">
+                  Please enter a valide temperature number
+                </small>   
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <label>Friday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #fri1="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((fri1.invalid || fri1 == null) && fri1.touched)"
+                [(ngModel)]="orderModel.fri1"
+                type="text" class="form-control" name="fri1">
+                <small class="text-danger" [class.d-none]="fri1.valid || fri1.untouched">
+                  Please enter a valide temperature number
+                </small>   
+            </div>
+            <div class="col-2">
+                <label>Friday:</label>
+            </div>
+            <div class="col-4">
+                <input 
+                required
+                minlength="1"
+                #fri2="ngModel"
+                pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"
+                [class.is-invalid]="((fri2.invalid || fri2 == null) && fri2.touched)"
+                [(ngModel)]="orderModel.fri2"
+                type="text" class="form-control" name="fri2">
+                <small class="text-danger" [class.d-none]="fri2.valid || fri2.untouched">
+                  Please enter a valide temperature number
+                </small>   
+            </div>
+        </div>
+        <button 
+          [disabled]="!orderForm.form.valid"
+          (click)="onSubmit(orderForm.value)" 
+          class="btn btn-primary">Compare</button>
+      </form>  
+      
+      <hr/>
+      <div class="row">
+          <h2>Results:</h2>
+      </div>
+      <div class="row">
+          <div clss="col">
+              <span id="week1">{{ responsedata.week1_avg }}</span> 
+          </div>
+      </div>
+      <div class="row">
+          <div clss="col">
+              <span id="week2">{{ responsedata.week2_avg }}</span> 
+          </div>
+      </div>
+      <div class="row">
+          <div clss="col">
+              <span id="conclusion">{{ responsedata.con }}</span> 
+          </div>
+        </div>
+  </div>
+</body>

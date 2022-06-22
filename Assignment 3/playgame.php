@@ -73,6 +73,7 @@
 </head>
 <body>
 <?php include 'navbar.php'?>
+
     <script>
         function resize(test){
             var block = 0;
